@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/sidebar_item_designated"
+            android:icon="@drawable/ic_designated"
+            android:title="@string/designated_grade_text">
+        </item>
+        <item
+            android:id="@+id/sidebar_item_basic"
+            android:icon="@drawable/ic_basic"
+            android:title="@string/basic_grade_text">
+        </item>
+        <item
+            android:id="@+id/sidebar_item_unify"
+            android:icon="@drawable/ic_unify"
+            android:title="@string/unify_grade_text">
+        </item>
+        <item
+            android:id="@+id/sidebar_item_favorite"
+            android:icon="@drawable/ic_favorite"
+            android:title="@string/favorite_text">
+        </item>
+        <item
+            android:id="@+id/sidebar_item_widget"
+            android:icon="@drawable/ic_count_down"
+            android:title="@string/count_down_text">
+        </item>
+        <item
+            android:id="@+id/sidebar_item_response"
+            android:icon="@drawable/ic_response"
+            android:title="@string/response_text">
+        </item>
+    </group>
+
+</menu>

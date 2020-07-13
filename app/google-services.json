@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "534381368307",
+    "firebase_url": "https://seniorhigh-99a4a.firebaseio.com",
+    "project_id": "seniorhigh-99a4a",
+    "storage_bucket": "seniorhigh-99a4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534381368307:android:54a959608fa692b7",
+        "android_client_info": {
+          "package_name": "com.feveral.seniorhigh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534381368307-cndu4qappo1j4cbeelfqd4fjkt8nk86d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.feveral.seniorhigh",
+            "certificate_hash": "e1ec496d82c582aa3bec5bec23102c8cbc999797"
+          }
+        },
+        {
+          "client_id": "534381368307-3tllne7npf6h8fh54pol1at9om4phtjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5AC9I8Ecft5oPgZ2ak0bavqtVHLhsnLk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534381368307-3tllne7npf6h8fh54pol1at9om4phtjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

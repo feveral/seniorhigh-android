@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/settingPadding"
+    android:background="@color/white_gray"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:paddingBottom="@dimen/smallPadding"
+        android:text="問題或建議"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textMedium"/>
+    <EditText
+        android:id="@+id/response_edit"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="start"
+        android:paddingTop="@dimen/settingPadding"
+        android:paddingLeft="@dimen/smallPadding"
+        android:paddingRight="@dimen/smallPadding"
+        android:layout_marginBottom="@dimen/settingPadding"
+        android:elevation="4dp"
+        android:hint="如果有成績誤植或是意見都歡迎留言給我們唷~"
+        android:background="@drawable/rounded_edittext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:paddingBottom="@dimen/smallPadding"
+        android:text="聯絡方式"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textMedium"/>
+
+    <EditText
+        android:id="@+id/response_email_edit"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:gravity="start"
+        android:paddingTop="@dimen/smallPadding"
+        android:paddingLeft="@dimen/smallPadding"
+        android:paddingRight="@dimen/smallPadding"
+        android:layout_marginBottom="@dimen/settingPadding"
+        android:elevation="4dp"
+        android:hint="請輸入您的聯絡方式~ \n ( 電子信箱或手機 )"
+        android:background="@drawable/rounded_edittext"/>
+    <Button
+        android:id="@+id/response_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_shape_black"
+        android:gravity="center"
+        android:text="送出"
+        android:textSize="@dimen/textMedium"
+        android:textColor="@color/white"
+        android:onClick="submitButtonClick"/>
+
+</LinearLayout>

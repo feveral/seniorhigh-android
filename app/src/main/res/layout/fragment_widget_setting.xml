@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/settingPadding"
+        android:layout_marginTop="@dimen/settingPadding"
+        android:textSize="@dimen/textLarge"
+        android:text="請選擇要顯示的小工具種類"/>
+
+    <Button
+        android:id="@+id/widget_choose_button_designated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/button_shape_white"
+        android:layout_marginBottom="@dimen/settingPadding"
+        android:gravity="center"
+        android:paddingLeft="@dimen/settingPadding"
+        android:paddingRight="@dimen/settingPadding"
+        android:textSize="@dimen/textMedium"
+        android:textColor="@color/black"
+        android:text="學測剩下 153 天"/>
+
+
+    <Button
+        android:id="@+id/widget_choose_button_basic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/button_shape_white"
+        android:layout_marginBottom="@dimen/settingPadding"
+        android:gravity="center"
+        android:paddingLeft="@dimen/settingPadding"
+        android:paddingRight="@dimen/settingPadding"
+        android:textSize="@dimen/textMedium"
+        android:textColor="@color/black"
+        android:text="指考剩下 183 天"/>
+
+    <Button
+        android:id="@+id/widget_choose_button_unify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/button_shape_white"
+        android:layout_marginBottom="@dimen/settingPadding"
+        android:gravity="center"
+        android:paddingLeft="@dimen/settingPadding"
+        android:paddingRight="@dimen/settingPadding"
+        android:textSize="@dimen/textMedium"
+        android:textColor="@color/black"
+        android:text="統測剩下 193 天"/>
+
+</LinearLayout>
