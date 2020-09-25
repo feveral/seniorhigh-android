@@ -4,9 +4,12 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.formats.NativeAdOptions;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
 
 import java.util.Random;
 
@@ -32,6 +35,28 @@ public class AdManager {
             }
         });
         this._interstitialAd.loadAd(new AdRequest.Builder().addTestDevice(_testDeviceId).build());
+    }
+
+    public void loadNativeAd() {
+        final AdLoader adLoader = new AdLoader.Builder(_context, _context.getResources().getString(R.string.native_ad_id))
+                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+                    @Override
+                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                    }
+                })
+                .withAdListener(new AdListener() {
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        // Handle the failure by logging, altering the UI, and so on.
+                        Log.i("onAdFailedToLoad", Integer.toString(errorCode));
+                    }
+                })
+                .withNativeAdOptions(new NativeAdOptions.Builder()
+                        // Methods in the NativeAdOptions.Builder class can be
+                        // used here to specify individual options settings.
+                        .build())
+                .build();
+        adLoader.loadAds(new AdRequest.Builder().build(), 3);
     }
 
     public void showInterstitialAd() {

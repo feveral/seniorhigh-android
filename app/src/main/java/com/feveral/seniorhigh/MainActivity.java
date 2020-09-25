@@ -80,11 +80,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadAdvertisement(){
         AdManager adManager = new AdManager(this);
-        adManager.loadInterstitialAd();
-        adManager.showDelayedInterstitialAd();
+//        adManager.loadInterstitialAd();
+//        adManager.showDelayedInterstitialAd();
         AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("DF3F1017104F0244987606DBD16D7A1D").build();
         adView.loadAd(adRequest);
+//        adManager.loadNativeAd();
     }
 
     private void setupSidePanel(){
@@ -163,11 +164,11 @@ public class MainActivity extends AppCompatActivity {
             if (currentFragment.equals(to)) {
                 return;
             }
-            if (!to.isAdded()) { // 先判断是否被add过
+            if (!to.isAdded()) {
                 transaction.hide(currentFragment)
-                        .add(R.id.fragment_container, to).commit(); // 隐藏当前的fragment，add下一个到Activity中
+                        .add(R.id.fragment_container, to).commit();
             } else {
-                transaction.hide(currentFragment).show(to).commit(); // 隐藏当前的fragment，显示下一个
+                transaction.hide(currentFragment).show(to).commit();
             }
         } else {
             transaction.add(R.id.fragment_container, to).commit();

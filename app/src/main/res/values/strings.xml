@@ -15,8 +15,10 @@
     <string name="title_activity_unify_search">unifySearchActivity</string>
 
     <string name="ad_application_id">ca-app-pub-7439674685628581~8953103392</string>
+    <string name="test_banner_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="main_banner_ad_unit_id">ca-app-pub-7439674685628581/1300052076</string>
     <string name="search_banner_ad_unit_id">ca-app-pub-7439674685628581/2985825686</string>
     <string name="ad_interstitial_id">ca-app-pub-7439674685628581/9865520260</string>
+    <string name="native_ad_id">ca-app-pub-7439674685628581/3173753909</string>
     <string name="add_widget">Add widget</string>
 </resources>
