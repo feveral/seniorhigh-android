@@ -10,6 +10,5 @@
 .externalNativeBuild
 release_resource/keystore
 release_resource/apk
-app/release/app-release.apk
-app/release/output.json
+app/release/*
 

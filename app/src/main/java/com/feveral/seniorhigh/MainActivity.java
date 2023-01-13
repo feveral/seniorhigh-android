@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().addTestDevice("DF3F1017104F0244987606DBD16D7A1D").build();
         adView.loadAd(adRequest);
-//        adManager.loadNativeAd();
     }
 
     private void setupSidePanel(){
