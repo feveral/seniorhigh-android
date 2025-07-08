@@ -33,8 +33,6 @@ import com.feveral.seniorhigh.designated.DesignatedSearchActivity;
 import com.feveral.seniorhigh.favorite.FavoriteFragment;
 import com.feveral.seniorhigh.response.ResponseFragment;
 import com.feveral.seniorhigh.unify.UnifyFragment;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         setupSidePanel();
         setToggle();
         switchFragment("DesignatedFragment");
-        loadAdvertisement();
     }
 
     @Override
@@ -76,15 +73,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return true;
-    }
-
-    private void loadAdvertisement(){
-        AdManager adManager = new AdManager(this);
-//        adManager.loadInterstitialAd();
-//        adManager.showDelayedInterstitialAd();
-        AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("DF3F1017104F0244987606DBD16D7A1D").build();
-        adView.loadAd(adRequest);
     }
 
     private void setupSidePanel(){

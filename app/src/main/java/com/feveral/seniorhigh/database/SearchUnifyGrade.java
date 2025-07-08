@@ -72,7 +72,7 @@ public class SearchUnifyGrade {
 
     private Cursor getSearchDepartmentAndGradeCursor(String school , String year){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id","school","year","department","grade","departmentGroup"};
+        String[] columns = {"school","year","department","grade","departmentGroup"};
         String selection = "school=? AND year=?";
         String[] selectionArgs = {school,year};
         return database.query(tableName,columns,selection,selectionArgs,null,null,null);
@@ -88,7 +88,7 @@ public class SearchUnifyGrade {
 
     private Cursor getSearchDepartmentGroupAndGradeCursor(String year,String departmentGroup){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id","school","year","department","grade","departmentGroup"};
+        String[] columns = {"school","year","department","grade","departmentGroup"};
         String selection = "year=? AND departmentGroup=?";
         String[] selectionArgs = {year,departmentGroup};
         return database.query(tableName,columns,selection,selectionArgs,null,null,null);

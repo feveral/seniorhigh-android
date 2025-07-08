@@ -1,6 +1,5 @@
 package com.feveral.seniorhigh.database;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
@@ -64,8 +63,8 @@ public class SearchBasicGrade {
 
     private Cursor getSearchDepartmentAndGradeCursor(String school , String year){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id","school","year","department","firstOrder","firstGrade","secondOrder","secondGrade",
-                "thirdOrder","thirdGrade", "forthOrder","forthGrade","fifthOrder","fifthGrade","people"};
+        String[] columns = {"school","year","department","firstOrder","firstGrade","secondOrder","secondGrade",
+                "thirdOrder","thirdGrade", "fourthOrder","fourthGrade","fifthOrder","fifthGrade","people"};
         String selection = "school=? AND year=?";
         String[] selectionArgs = {school,year};
         return database.query(_tableName,columns,selection,selectionArgs,null,null,null);
@@ -73,8 +72,8 @@ public class SearchBasicGrade {
 
     public BasicGrade getExactDepartmentGrade(String year , String school , String department){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id","school","year","department","firstOrder","firstGrade","secondOrder","secondGrade",
-                "thirdOrder","thirdGrade", "forthOrder","forthGrade","fifthOrder","fifthGrade","people"};
+        String[] columns = {"school","year","department","firstOrder","firstGrade","secondOrder","secondGrade",
+                "thirdOrder","thirdGrade", "fourthOrder","fourthGrade","fifthOrder","fifthGrade","people"};
         String selection = "year=? AND school=? AND department=?";
         String[] selectionArgs = {year,school,department};
         Cursor cursor = database.query(_tableName,columns,selection,selectionArgs,null,null,null);

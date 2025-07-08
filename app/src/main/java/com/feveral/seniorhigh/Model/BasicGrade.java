@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class BasicGrade{
 
-    private String _id = "";
     private String school = "";
     private String year = "";
     private String department = "";
@@ -30,8 +29,7 @@ public class BasicGrade{
     private int people = 0;
 
 
-    public BasicGrade(String id , String year , String school , String department){
-        this._id = id;
+    public BasicGrade(String year , String school , String department){
         this.year = year;
         this.school = school;
         this.department = department;
@@ -57,7 +55,7 @@ public class BasicGrade{
         this.thirdOrder = thirdOrder;
     }
 
-    public void setForthOrder(String forthOrder) {
+    public void setFourthOrder(String forthOrder) {
         this.forthOrder = forthOrder;
     }
 
@@ -77,7 +75,7 @@ public class BasicGrade{
         this.thirdGrade = thirdGrade;
     }
 
-    public void setForthGrade(int forthGrade) {
+    public void setFourthGrade(int forthGrade) {
         this.forthGrade = forthGrade;
     }
 
@@ -87,10 +85,6 @@ public class BasicGrade{
 
     public String getSchool() {
         return school;
-    }
-
-    public String get_id() {
-        return _id;
     }
 
     public String getDepartment() {
@@ -129,11 +123,11 @@ public class BasicGrade{
         return fifthOrder;
     }
 
-    public int getForthGrade() {
+    public int getFourthGrade() {
         return forthGrade;
     }
 
-    public String getForthOrder() {
+    public String getFourthOrder() {
         return forthOrder;
     }
 
@@ -147,8 +141,7 @@ public class BasicGrade{
 
     public static BasicGrade cursorToGrade(Cursor cursor){
         BasicGrade grade = new BasicGrade(
-                cursor.getString(cursor.getColumnIndex("_id"))
-                , cursor.getString(cursor.getColumnIndex("year"))
+                cursor.getString(cursor.getColumnIndex("year"))
                 , cursor.getString(cursor.getColumnIndex("school"))
                 , cursor.getString(cursor.getColumnIndex("department")));
         grade.setFirstOrder(cursor.getString(cursor.getColumnIndex("firstOrder")));
@@ -157,8 +150,8 @@ public class BasicGrade{
         grade.setSecondGrade(cursor.getInt(cursor.getColumnIndex("secondGrade")));
         grade.setThirdOrder(cursor.getString(cursor.getColumnIndex("thirdOrder")));
         grade.setThirdGrade(cursor.getInt(cursor.getColumnIndex("thirdGrade")));
-        grade.setForthOrder(cursor.getString(cursor.getColumnIndex("forthOrder")));
-        grade.setForthGrade(cursor.getInt(cursor.getColumnIndex("forthGrade")));
+        grade.setFourthOrder(cursor.getString(cursor.getColumnIndex("fourthOrder")));
+        grade.setFourthGrade(cursor.getInt(cursor.getColumnIndex("fourthGrade")));
         grade.setFifthOrder(cursor.getString(cursor.getColumnIndex("fifthOrder")));
         grade.setFifthGrade(cursor.getInt(cursor.getColumnIndex("fifthGrade")));
         grade.setPeople(cursor.getInt(cursor.getColumnIndex("people")));

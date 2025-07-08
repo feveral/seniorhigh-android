@@ -14,6 +14,12 @@ import java.util.ArrayList;
 
 public class SearchDesignatedGrade {
 
+    private static final String[] COLUMNS = {"year", "school", "department", "people",
+                                       "chinese", "english", "mathAdvance", "mathBasic",
+                                       "mathA", "mathB", "physical", "chemistry", "biological",
+                                       "geography", "history", "citizen", "society", "nature",
+                                       "skill", "allGrade"};
+
     public ArrayList<String> findSchoolListFromKeyword(String year , String keyWord){
         ArrayList<String> newSchoolList = new ArrayList<>();
         for(String s : getSchoolList(year))
@@ -114,53 +120,37 @@ public class SearchDesignatedGrade {
 
     private Cursor getSearchDepartmentAndGradeCursor(String school , String year){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id","school","year","department","allGrade","chinese","english","mathA","mathB","physical",
-                "chemistry","biological","geography","history","citizen","technique","allGrade","people"};
         String selection = "school=? AND year=?";
         String[] selectionArgs = {school,year};
-        return database.query("Designated",columns,selection,selectionArgs,null,null,null);
+        return database.query("Designated",COLUMNS,selection,selectionArgs,null,null,null);
     }
 
     private Cursor getFirstGroupCursor(String year){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id","year","school","department","chinese","english","mathA","mathB","physical",
-                "chemistry","biological","geography","history","citizen","technique","allGrade","people"};
-        String selection = "year=?";
+        String selection = "year=? AND (mathB>0 OR mathBasic>0)";
         String[] selectionArgs = {year};
-        String groupBy = "_id";
-        String having = "mathB>0";
-        return database.query("Designated",columns,selection,selectionArgs,groupBy,having,null);
+        return database.query("Designated",COLUMNS,selection,selectionArgs,null,null,null);
     }
 
     private Cursor getSecondGroupCursor(String year){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id","year","school","department","chinese","english","mathA","mathB","physical",
-                "chemistry","biological","geography","history","citizen","technique","allGrade","people"};
-        String selection = "year=?";
+        String selection = "year=? AND ((mathA>0 OR mathAdvance>0) AND biological is NULL)";
         String[] selectionArgs = {year};
-        String groupBy = "_id";
-        String having = "mathA>0 AND biological==0";
-        return database.query("Designated",columns,selection,selectionArgs,groupBy,having,null);
+        return database.query("Designated",COLUMNS,selection,selectionArgs,null,null,null);
     }
 
     private Cursor getThirdGroupCursor(String year) {
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id", "year", "school", "department" , "chinese", "english", "mathA", "mathB", "physical",
-                "chemistry", "biological", "geography", "history", "citizen", "technique", "allGrade", "people"};
-        String selection = "year=?";
+        String selection = "year=? AND biological>0";
         String[] selectionArgs = {year};
-        String groupBy = "_id";
-        String having = "biological>0";
-        return database.query("Designated", columns, selection, selectionArgs, groupBy, having, null);
+        return database.query("Designated", COLUMNS, selection, selectionArgs, null, null, null);
     }
 
     public DesignatedGrade getExactDepartmentGrade(String year , String school , String department){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String[] columns = {"_id", "year", "school", "department" , "chinese", "english", "mathA", "mathB", "physical",
-                "chemistry", "biological", "geography", "history", "citizen", "technique", "allGrade", "people"};
         String selection = "year=? AND school=? AND department=?";
         String[] selectionArgs = {year,school,department};
-        Cursor cursor = database.query("Designated", columns, selection, selectionArgs , null , null , null);
+        Cursor cursor = database.query("Designated", COLUMNS, selection, selectionArgs , null , null , null);
         DesignatedGrade grade;
         cursor.moveToNext();
         try {

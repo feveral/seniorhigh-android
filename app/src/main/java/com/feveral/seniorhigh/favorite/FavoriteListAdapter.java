@@ -6,21 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.feveral.seniorhigh.Config;
 import com.feveral.seniorhigh.Model.BasicGrade;
-import com.feveral.seniorhigh.Model.Designated;
 import com.feveral.seniorhigh.Model.DesignatedGrade;
 import com.feveral.seniorhigh.Model.Favorite;
 import com.feveral.seniorhigh.Model.UnifyGrade;
 import com.feveral.seniorhigh.R;
 import com.feveral.seniorhigh.basic.BasicDialog;
-import com.feveral.seniorhigh.database.SearchDesignatedGrade;
-import com.feveral.seniorhigh.database.UserDatabase;
 import com.feveral.seniorhigh.designated.DesignatedDialog;
 import com.feveral.seniorhigh.unify.UnifyDialog;
-import com.feveral.seniorhigh.unify.UnifyGroupAdapter;
 
 import java.util.ArrayList;
 

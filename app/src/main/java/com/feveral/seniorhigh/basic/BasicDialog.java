@@ -105,15 +105,15 @@ public class BasicDialog {
         setFirstYearViewGoneIfGradeNotExist(firstYearGrade);
         builder.setTitle(firstYearGrade.getSchool() + "  " + firstYearGrade.getDepartment());
         firstYearYearView.setText("-----"  + firstYearGrade.getYear() + "年度-----");
-        firstYearFirstOrder.setText(TextUtils.addPlusToSubjectSet(firstYearGrade.getFirstOrder()));
+        firstYearFirstOrder.setText(firstYearGrade.getFirstOrder());
         firstYearFirstGrade.setText(String.valueOf(firstYearGrade.getFirstGrade()));
-        firstYearSecondOrder.setText(TextUtils.addPlusToSubjectSet(firstYearGrade.getSecondOrder()));
+        firstYearSecondOrder.setText(firstYearGrade.getSecondOrder());
         firstYearSecondGrade.setText(String.valueOf(firstYearGrade.getSecondGrade()));
-        firstYearThirdOrder.setText(TextUtils.addPlusToSubjectSet(firstYearGrade.getThirdOrder()));
+        firstYearThirdOrder.setText(firstYearGrade.getThirdOrder());
         firstYearThirdGrade.setText(String.valueOf(firstYearGrade.getThirdGrade()));
-        firstYearForthOrder.setText(TextUtils.addPlusToSubjectSet(firstYearGrade.getForthOrder()));
-        firstYearForthGrade.setText(String.valueOf(firstYearGrade.getForthGrade()));
-        firstYearFifthOrder.setText(TextUtils.addPlusToSubjectSet(firstYearGrade.getFifthOrder()));
+        firstYearForthOrder.setText(firstYearGrade.getFourthOrder());
+        firstYearForthGrade.setText(String.valueOf(firstYearGrade.getFourthGrade()));
+        firstYearFifthOrder.setText(firstYearGrade.getFifthOrder());
         firstYearFifthGrade.setText(String.valueOf(firstYearGrade.getFifthGrade()));
         return this;
     }
@@ -121,15 +121,15 @@ public class BasicDialog {
     public BasicDialog setSecondGrade(BasicGrade secondYearGrade){
         setSecondYearViewGoneIfGradeNotExist(secondYearGrade);
         secondYearYearView.setText("-----"  + secondYearGrade.getYear() + "年度-----");
-        secondYearFirstOrder.setText(TextUtils.addPlusToSubjectSet(secondYearGrade.getFirstOrder()));
+        secondYearFirstOrder.setText(secondYearGrade.getFirstOrder());
         secondYearFirstGrade.setText(String.valueOf(secondYearGrade.getFirstGrade()));
-        secondYearSecondOrder.setText(TextUtils.addPlusToSubjectSet(secondYearGrade.getSecondOrder()));
+        secondYearSecondOrder.setText(secondYearGrade.getSecondOrder());
         secondYearSecondGrade.setText(String.valueOf(secondYearGrade.getSecondGrade()));
-        secondYearThirdOrder.setText(TextUtils.addPlusToSubjectSet(secondYearGrade.getThirdOrder()));
+        secondYearThirdOrder.setText(secondYearGrade.getThirdOrder());
         secondYearThirdGrade.setText(String.valueOf(secondYearGrade.getThirdGrade()));
-        secondYearForthOrder.setText(TextUtils.addPlusToSubjectSet(secondYearGrade.getForthOrder()));
-        secondYearForthGrade.setText(String.valueOf(secondYearGrade.getForthGrade()));
-        secondYearFifthOrder.setText(TextUtils.addPlusToSubjectSet(secondYearGrade.getFifthOrder()));
+        secondYearForthOrder.setText(secondYearGrade.getFourthOrder());
+        secondYearForthGrade.setText(String.valueOf(secondYearGrade.getFourthGrade()));
+        secondYearFifthOrder.setText(secondYearGrade.getFifthOrder());
         secondYearFifthGrade.setText(String.valueOf(secondYearGrade.getFifthGrade()));
         return this;
     }
@@ -150,7 +150,7 @@ public class BasicDialog {
             firstYearThirdGrade.setVisibility(View.GONE);
             firstYearThirdTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getForthOrder().equals("") || basicGrade.getForthGrade()== 0){
+        if(basicGrade.getFourthOrder().equals("") || basicGrade.getFourthGrade()== 0){
             firstYearForthOrder.setVisibility(View.GONE);
             firstYearForthGrade.setVisibility(View.GONE);
             firstYearForthTitle.setVisibility(View.GONE);
@@ -180,7 +180,7 @@ public class BasicDialog {
             secondYearThirdGrade.setVisibility(View.GONE);
             secondYearThirdTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getForthOrder().equals("") || basicGrade.getForthGrade()== 0){
+        if(basicGrade.getFourthOrder().equals("") || basicGrade.getFourthGrade()== 0){
             secondYearForthOrder.setVisibility(View.GONE);
             secondYearForthGrade.setVisibility(View.GONE);
             secondYearForthTitle.setVisibility(View.GONE);

@@ -41,14 +41,6 @@ public class UnifySearchActivity extends AppCompatActivity {
         setStatusBarColor();
         setSearchTextField();
         setSchoolRecyclerView();
-        loadAdvertisement();
-    }
-
-    private void loadAdvertisement(){
-        MobileAds.initialize(this, this.getResources().getString(R.string.ad_application_id)); //AdMob 應用程式編號
-        AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("DF3F1017104F0244987606DBD16D7A1D").build();
-        adView.loadAd(adRequest);
     }
 
     private void setToolBar(){

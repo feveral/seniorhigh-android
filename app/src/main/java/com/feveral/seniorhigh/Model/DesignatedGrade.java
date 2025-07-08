@@ -15,11 +15,12 @@ import java.util.Comparator;
  */
 
 public class DesignatedGrade  extends BaseGrade {
-    private String _id = "";
     private String year = "";
     private String department = "";
     private double chinese = 0;
     private double english = 0;
+    private double mathAdvance = 0;
+    private double mathBasic = 0;
     private double mathA = 0;
     private double mathB = 0;
     private double physical = 0;
@@ -28,12 +29,13 @@ public class DesignatedGrade  extends BaseGrade {
     private double geography = 0;
     private double history = 0;
     private double citizen = 0;
-    private double technique = 0;
+    private double society = 0;
+    private double nature = 0;
+    private double skill = 0;
     private double allGrade = 0;
     private int people = 0;
 
-    public DesignatedGrade(String id , String year , String school , String department){
-        this._id = id;
+    public DesignatedGrade(String year , String school , String department){
         this.year = year;
         this.school = school;
         this.department = department;
@@ -63,6 +65,14 @@ public class DesignatedGrade  extends BaseGrade {
         this.mathB = mathB;
     }
 
+    public void setMathAdvance(double mathAdvance) {
+        this.mathAdvance = mathAdvance;
+    }
+
+    public void setMathBasic(double mathBasic) {
+        this.mathBasic = mathBasic;
+    }
+
     public void setPhysical(double physical) {
         this.physical = physical;
     }
@@ -87,8 +97,8 @@ public class DesignatedGrade  extends BaseGrade {
         this.citizen = citizen;
     }
 
-    public void setTechnique(double technique){
-        this.technique = technique;
+    public void setSkill(double skill){
+        this.skill = skill;
     }
 
     public void setAllGrade(double allGrade){
@@ -99,9 +109,6 @@ public class DesignatedGrade  extends BaseGrade {
         this.people = people;
     }
 
-    public String get_id() {
-        return _id;
-    }
 
     public String getDepartment() {
         return department;
@@ -151,8 +158,24 @@ public class DesignatedGrade  extends BaseGrade {
         return citizen;
     }
 
-    public double getTechnique() {
-        return technique;
+    public void setSociety(double society) {
+        this.society = society;
+    }
+
+    public void setNature(double nature) {
+        this.nature = nature;
+    }
+
+    public double getSociety() {
+        return society;
+    }
+
+    public double getNature() {
+        return nature;
+    }
+
+    public double getSkill() {
+        return skill;
     }
 
     public double getAllGrade() {
@@ -164,9 +187,10 @@ public class DesignatedGrade  extends BaseGrade {
     }
 
     public double getBalance(){
-        double weight = chinese + english + mathA + mathB + physical + chemistry + biological +
-                        geography + history + citizen + technique;
-        return allGrade/weight ;
+        double weight = chinese + english + mathAdvance + mathBasic +
+                        mathA + mathB + physical + chemistry + biological +
+                        geography + history + citizen + society + nature + skill;
+        return allGrade / weight ;
     }
 
     public String getYearString(){
@@ -177,7 +201,9 @@ public class DesignatedGrade  extends BaseGrade {
         String weightString = "";
         String chineseString = "國 " + String.valueOf(chinese) + " ";
         String englishString = "英 " + String.valueOf(english)+ " ";
-        String mathAString = "數甲 " + String.valueOf(mathA)+ " ";
+        String mathAdvanceString = "數甲 " + String.valueOf(mathAdvance)+ " ";
+        String mathBasicString = "數乙 " + String.valueOf(mathBasic)+ " ";
+        String mathAString = "數A " + String.valueOf(mathA)+ " ";
         String mathBString = "數乙 " + String.valueOf(mathB)+ " ";
         String physicalString = "物 " + String.valueOf(physical)+ " ";
         String chemistryString = "化 " + String.valueOf(chemistry)+ " ";
@@ -185,12 +211,18 @@ public class DesignatedGrade  extends BaseGrade {
         String geographyString = "地 " + String.valueOf(geography)+ " ";
         String historyString = "歷 " + String.valueOf(history)+ " ";
         String citizenString = "公 " + String.valueOf(citizen)+ " ";
-        String techniqueString = "術 " + String.valueOf(technique)+ " ";
+        String societyString = "公 " + String.valueOf(society)+ " ";
+        String natureString = "公 " + String.valueOf(nature)+ " ";
+        String skillString = "術 " + String.valueOf(skill)+ " ";
 
         if(chinese!=0)
             weightString += chineseString;
         if(english!=0)
             weightString += englishString;
+        if(mathAdvance != 0)
+            weightString += mathAdvanceString;
+        if(mathBasic != 0)
+            weightString += mathBasicString;
         if(mathA!=0)
             weightString += mathAString;
         if(mathB!=0)
@@ -207,8 +239,12 @@ public class DesignatedGrade  extends BaseGrade {
             weightString += historyString;
         if(citizen!=0)
             weightString += citizenString;
-        if(technique!=0)
-            weightString += techniqueString;
+        if(society!=0)
+            weightString += societyString;
+        if(nature!=0)
+            weightString += natureString;
+        if(skill!=0)
+            weightString += skillString;
         return weightString;
     }
 
@@ -239,12 +275,13 @@ public class DesignatedGrade  extends BaseGrade {
 
     public static DesignatedGrade cursorToGrade(Cursor cursor){
         DesignatedGrade grade = new DesignatedGrade(
-                cursor.getString(cursor.getColumnIndex("_id"))
-                , cursor.getString(cursor.getColumnIndex("year"))
+                cursor.getString(cursor.getColumnIndex("year"))
                 , cursor.getString(cursor.getColumnIndex("school"))
                 , cursor.getString(cursor.getColumnIndex("department")));
         grade.setChinese(cursor.getDouble(cursor.getColumnIndex("chinese")));
         grade.setEnglish(cursor.getDouble(cursor.getColumnIndex("english")));
+        grade.setMathAdvance(cursor.getDouble(cursor.getColumnIndex("mathAdvance")));
+        grade.setMathBasic(cursor.getDouble(cursor.getColumnIndex("mathBasic")));
         grade.setMathA(cursor.getDouble(cursor.getColumnIndex("mathA")));
         grade.setMathB(cursor.getDouble(cursor.getColumnIndex("mathB")));
         grade.setPhysical(cursor.getDouble(cursor.getColumnIndex("physical")));
@@ -253,7 +290,9 @@ public class DesignatedGrade  extends BaseGrade {
         grade.setGeography(cursor.getDouble(cursor.getColumnIndex("geography")));
         grade.setHistory(cursor.getDouble(cursor.getColumnIndex("history")));
         grade.setCitizen(cursor.getDouble(cursor.getColumnIndex("citizen")));
-        grade.setTechnique(cursor.getDouble(cursor.getColumnIndex("technique")));
+        grade.setSociety(cursor.getDouble(cursor.getColumnIndex("society")));
+        grade.setNature(cursor.getDouble(cursor.getColumnIndex("nature")));
+        grade.setSkill(cursor.getDouble(cursor.getColumnIndex("skill")));
         grade.setAllGrade(cursor.getDouble(cursor.getColumnIndex("allGrade")));
         grade.setPeople(cursor.getInt(cursor.getColumnIndex("people")));
         return grade;

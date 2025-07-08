@@ -59,6 +59,7 @@ public class UnifyDialog {
         setFavoriteButton();
         setTitle(this.firstYearGrade.getSchool(), this.firstYearGrade.getDepartment());
         setTextViewText(R.id.unify_dialog_year_first_year, "-----" + this.firstYearGrade.getYear() + "年度-----");
+        Log.d("setFirstYearGrade", String.valueOf(gradeList.get(0).getGrade()));
         if (gradeList.size() >= 1) {
             setTextViewText(R.id.grade1_first_year, Double.toString(gradeList.get(0).getGrade()));
             setTextViewText(R.id.group1_first_year, gradeList.get(0).getDepartmentGroup());

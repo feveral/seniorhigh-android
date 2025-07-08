@@ -17,7 +17,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.feveral.seniorhigh.AdManager;
 import com.feveral.seniorhigh.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -40,14 +39,6 @@ public class DesignatedSearchActivity extends AppCompatActivity {
         setStatusBarColor();
         setSchoolRecyclerView();
         setSearchTextField();
-        loadAdvertisement();
-    }
-
-    private void loadAdvertisement(){
-        MobileAds.initialize(this, this.getResources().getString(R.string.ad_application_id)); //AdMob 應用程式編號
-        AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("DF3F1017104F0244987606DBD16D7A1D").build();
-        adView.loadAd(adRequest);
     }
 
     public void setToolBar() {
@@ -56,12 +47,7 @@ public class DesignatedSearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

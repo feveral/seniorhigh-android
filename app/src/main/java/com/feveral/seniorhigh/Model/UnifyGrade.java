@@ -16,15 +16,13 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class UnifyGrade {
-    private String _id = "";
     private String year = "";
     private String departmentGroup = "";
     private String school = "";
     private String department = "";
     private double grade;
 
-    public UnifyGrade(String id , String year , String school , String department){
-        this._id = id;
+    public UnifyGrade(String year , String school , String department){
         this.year = year;
         this.school = school;
         this.department = department;
@@ -40,10 +38,6 @@ public class UnifyGrade {
 
     public void setDepartmentGroup(String departmentGroup){
         this.departmentGroup = departmentGroup;
-    }
-
-    public String get_id() {
-        return _id;
     }
 
     public String getYear() {
@@ -85,8 +79,7 @@ public class UnifyGrade {
 
     public static UnifyGrade cursorToGrade(Cursor cursor){
         UnifyGrade grade = new UnifyGrade(
-                cursor.getString(cursor.getColumnIndex("_id"))
-                , cursor.getString(cursor.getColumnIndex("year"))
+                cursor.getString(cursor.getColumnIndex("year"))
                 , cursor.getString(cursor.getColumnIndex("school"))
                 , cursor.getString(cursor.getColumnIndex("department")));
         grade.setGrade(cursor.getDouble(cursor.getColumnIndex("grade")));
