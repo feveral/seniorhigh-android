@@ -20,6 +20,7 @@ import com.feveral.seniorhigh.Model.Favorite;
 import com.feveral.seniorhigh.R;
 import com.feveral.seniorhigh.utility.TextUtils;
 
+import java.text.DecimalFormat;
 import java.util.Objects;
 
 /**
@@ -108,15 +109,15 @@ public class BasicDialog {
         builder.setTitle(firstYearGrade.getSchool() + "  " + firstYearGrade.getDepartment());
         firstYearYearView.setText("-----"  + firstYearGrade.getYear() + "年度-----");
         firstYearFirstOrder.setText(firstYearGrade.getFirstOrder());
-        firstYearFirstGrade.setText(String.valueOf(firstYearGrade.getFirstGrade()));
+        firstYearFirstGrade.setText(formatDouble(firstYearGrade.getFirstGrade()));
         firstYearSecondOrder.setText(firstYearGrade.getSecondOrder());
-        firstYearSecondGrade.setText(String.valueOf(firstYearGrade.getSecondGrade()));
+        firstYearSecondGrade.setText(formatDouble(firstYearGrade.getSecondGrade()));
         firstYearThirdOrder.setText(firstYearGrade.getThirdOrder());
-        firstYearThirdGrade.setText(String.valueOf(firstYearGrade.getThirdGrade()));
+        firstYearThirdGrade.setText(formatDouble(firstYearGrade.getThirdGrade()));
         firstYearForthOrder.setText(firstYearGrade.getFourthOrder());
-        firstYearForthGrade.setText(String.valueOf(firstYearGrade.getFourthGrade()));
+        firstYearForthGrade.setText(formatDouble(firstYearGrade.getFourthGrade()));
         firstYearFifthOrder.setText(firstYearGrade.getFifthOrder());
-        firstYearFifthGrade.setText(String.valueOf(firstYearGrade.getFifthGrade()));
+        firstYearFifthGrade.setText(formatDouble(firstYearGrade.getFifthGrade()));
         return this;
     }
 
@@ -125,15 +126,15 @@ public class BasicDialog {
         setSecondYearViewGoneIfGradeNotExist(new BasicGrade());
         secondYearYearView.setText("-----"  + secondYearGrade.getYear() + "年度-----");
         secondYearFirstOrder.setText(secondYearGrade.getFirstOrder());
-        secondYearFirstGrade.setText(String.valueOf(secondYearGrade.getFirstGrade()));
+        secondYearFirstGrade.setText(formatDouble(secondYearGrade.getFirstGrade()));
         secondYearSecondOrder.setText(secondYearGrade.getSecondOrder());
-        secondYearSecondGrade.setText(String.valueOf(secondYearGrade.getSecondGrade()));
+        secondYearSecondGrade.setText(formatDouble(secondYearGrade.getSecondGrade()));
         secondYearThirdOrder.setText(secondYearGrade.getThirdOrder());
-        secondYearThirdGrade.setText(String.valueOf(secondYearGrade.getThirdGrade()));
+        secondYearThirdGrade.setText(formatDouble(secondYearGrade.getThirdGrade()));
         secondYearForthOrder.setText(secondYearGrade.getFourthOrder());
-        secondYearForthGrade.setText(String.valueOf(secondYearGrade.getFourthGrade()));
+        secondYearForthGrade.setText(formatDouble(secondYearGrade.getFourthGrade()));
         secondYearFifthOrder.setText(secondYearGrade.getFifthOrder());
-        secondYearFifthGrade.setText(String.valueOf(secondYearGrade.getFifthGrade()));
+        secondYearFifthGrade.setText(formatDouble(secondYearGrade.getFifthGrade()));
         return this;
     }
 
@@ -227,5 +228,10 @@ public class BasicDialog {
         view.setBackgroundDrawableResource(R.drawable.dialog_background);
         dialog.show();
         return this;
+    }
+
+    public String formatDouble(double value) {
+        DecimalFormat df = new DecimalFormat("0.##");
+        return df.format(value);
     }
 }

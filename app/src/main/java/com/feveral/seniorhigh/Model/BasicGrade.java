@@ -17,15 +17,15 @@ public class BasicGrade{
     private String year = "";
     private String department = "";
     private String firstOrder = "";
-    private int firstGrade = 0;
+    private double firstGrade = 0;
     private String secondOrder = "";
-    private int secondGrade = 0;
+    private double secondGrade = 0;
     private String thirdOrder = "";
-    private int thirdGrade = 0;
+    private double thirdGrade = 0;
     private String forthOrder = "";
-    private int forthGrade = 0;
+    private double forthGrade = 0;
     private String fifthOrder = "";
-    private int fifthGrade = 0;
+    private double fifthGrade = 0;
     private int people = 0;
 
 
@@ -63,23 +63,23 @@ public class BasicGrade{
         this.fifthOrder = fifthOrder;
     }
 
-    public void setFirstGrade(int firstGrade) {
+    public void setFirstGrade(double firstGrade) {
         this.firstGrade = firstGrade;
     }
 
-    public void setSecondGrade(int secondGrade) {
+    public void setSecondGrade(double secondGrade) {
         this.secondGrade = secondGrade;
     }
 
-    public void setThirdGrade(int thirdGrade) {
+    public void setThirdGrade(double thirdGrade) {
         this.thirdGrade = thirdGrade;
     }
 
-    public void setFourthGrade(int forthGrade) {
+    public void setFourthGrade(double forthGrade) {
         this.forthGrade = forthGrade;
     }
 
-    public void setFifthGrade(int fifthGrade) {
+    public void setFifthGrade(double fifthGrade) {
         this.fifthGrade = fifthGrade;
     }
 
@@ -91,7 +91,7 @@ public class BasicGrade{
         return department;
     }
 
-    public int getFirstGrade() {
+    public double getFirstGrade() {
         return firstGrade;
     }
 
@@ -99,11 +99,11 @@ public class BasicGrade{
         return firstOrder;
     }
 
-    public int getFifthGrade() {
+    public double getFifthGrade() {
         return fifthGrade;
     }
 
-    public int getSecondGrade() {
+    public double getSecondGrade() {
         return secondGrade;
     }
 
@@ -123,7 +123,7 @@ public class BasicGrade{
         return fifthOrder;
     }
 
-    public int getFourthGrade() {
+    public double getFourthGrade() {
         return forthGrade;
     }
 
@@ -131,7 +131,7 @@ public class BasicGrade{
         return forthOrder;
     }
 
-    public int getThirdGrade() {
+    public double getThirdGrade() {
         return thirdGrade;
     }
 
@@ -145,15 +145,15 @@ public class BasicGrade{
                 , cursor.getString(cursor.getColumnIndex("school"))
                 , cursor.getString(cursor.getColumnIndex("department")));
         grade.setFirstOrder(cursor.getString(cursor.getColumnIndex("firstOrder")));
-        grade.setFirstGrade(cursor.getInt(cursor.getColumnIndex("firstGrade")));
+        grade.setFirstGrade(cursor.getDouble(cursor.getColumnIndex("firstGrade")));
         grade.setSecondOrder(cursor.getString(cursor.getColumnIndex("secondOrder")));
-        grade.setSecondGrade(cursor.getInt(cursor.getColumnIndex("secondGrade")));
+        grade.setSecondGrade(cursor.getDouble(cursor.getColumnIndex("secondGrade")));
         grade.setThirdOrder(cursor.getString(cursor.getColumnIndex("thirdOrder")));
-        grade.setThirdGrade(cursor.getInt(cursor.getColumnIndex("thirdGrade")));
+        grade.setThirdGrade(cursor.getDouble(cursor.getColumnIndex("thirdGrade")));
         grade.setFourthOrder(cursor.getString(cursor.getColumnIndex("fourthOrder")));
-        grade.setFourthGrade(cursor.getInt(cursor.getColumnIndex("fourthGrade")));
+        grade.setFourthGrade(cursor.getDouble(cursor.getColumnIndex("fourthGrade")));
         grade.setFifthOrder(cursor.getString(cursor.getColumnIndex("fifthOrder")));
-        grade.setFifthGrade(cursor.getInt(cursor.getColumnIndex("fifthGrade")));
+        grade.setFifthGrade(cursor.getDouble(cursor.getColumnIndex("fifthGrade")));
         grade.setPeople(cursor.getInt(cursor.getColumnIndex("people")));
         return grade;
     }
