@@ -18,7 +18,7 @@ public class Config {
     public static final String BASIC_SECOND_YEAR = "114";
 
     public static final String UNIFY_FIRST_YEAR = "113";
-    public static final String UNIFY_SECOND_YEAR = "113";
+    public static final String UNIFY_SECOND_YEAR = "112";
 
     public static final int DESIGNATED_EXAMINE_YEAR = 2023;
     public static final int DESIGNATED_EXAMINE_MONTH = 7; // 1 for January, 2 for February, ...
