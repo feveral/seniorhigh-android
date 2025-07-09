@@ -20,6 +20,8 @@ import com.feveral.seniorhigh.Model.Favorite;
 import com.feveral.seniorhigh.R;
 import com.feveral.seniorhigh.utility.TextUtils;
 
+import java.util.Objects;
+
 /**
  * Created by feveral on 2017/8/15.
  */
@@ -119,7 +121,8 @@ public class BasicDialog {
     }
 
     public BasicDialog setSecondGrade(BasicGrade secondYearGrade){
-        setSecondYearViewGoneIfGradeNotExist(secondYearGrade);
+        // Set to null for disabling second year grade
+        setSecondYearViewGoneIfGradeNotExist(new BasicGrade());
         secondYearYearView.setText("-----"  + secondYearGrade.getYear() + "年度-----");
         secondYearFirstOrder.setText(secondYearGrade.getFirstOrder());
         secondYearFirstGrade.setText(String.valueOf(secondYearGrade.getFirstGrade()));
@@ -135,27 +138,27 @@ public class BasicDialog {
     }
 
     private void setFirstYearViewGoneIfGradeNotExist(BasicGrade basicGrade){
-        if(basicGrade.getFirstOrder().equals("") || basicGrade.getFirstGrade()== 0){
+        if(Objects.isNull(basicGrade.getFirstGrade()) || basicGrade.getFirstGrade()== 0){
             firstYearFirstOrder.setVisibility(View.GONE);
             firstYearFirstGrade.setVisibility(View.GONE);
             firstYearFirstTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getSecondOrder().equals("") || basicGrade.getSecondGrade()== 0){
+        if(Objects.isNull(basicGrade.getSecondOrder()) || basicGrade.getSecondGrade()== 0){
             firstYearSecondOrder.setVisibility(View.GONE);
             firstYearSecondGrade.setVisibility(View.GONE);
             firstYearSecondTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getThirdOrder().equals("") || basicGrade.getThirdGrade()== 0){
+        if(Objects.isNull(basicGrade.getThirdOrder()) || basicGrade.getThirdGrade()== 0){
             firstYearThirdOrder.setVisibility(View.GONE);
             firstYearThirdGrade.setVisibility(View.GONE);
             firstYearThirdTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getFourthOrder().equals("") || basicGrade.getFourthGrade()== 0){
+        if(Objects.isNull(basicGrade.getFourthOrder()) || basicGrade.getFourthGrade()== 0){
             firstYearForthOrder.setVisibility(View.GONE);
             firstYearForthGrade.setVisibility(View.GONE);
             firstYearForthTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getFifthOrder().equals("") || basicGrade.getFifthGrade()== 0){
+        if(Objects.isNull(basicGrade.getFifthOrder()) || basicGrade.getFifthGrade()== 0){
             firstYearFifthOrder.setVisibility(View.GONE);
             firstYearFifthGrade.setVisibility(View.GONE);
             firstYearFifthTitle.setVisibility(View.GONE);
@@ -165,27 +168,27 @@ public class BasicDialog {
     private void setSecondYearViewGoneIfGradeNotExist(BasicGrade basicGrade){
         if(basicGrade.getSchool().equals(""))
             secondYearYearView.setVisibility(View.GONE);
-        if(basicGrade.getFirstOrder().equals("") || basicGrade.getFirstGrade()== 0){
+        if(Objects.isNull(basicGrade.getFirstGrade()) || basicGrade.getFirstGrade()== 0){
             secondYearFirstOrder.setVisibility(View.GONE);
             secondYearFirstGrade.setVisibility(View.GONE);
             secondYearFirstTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getSecondOrder().equals("") || basicGrade.getSecondGrade()== 0){
+        if(Objects.isNull(basicGrade.getSecondOrder()) || basicGrade.getSecondGrade()== 0){
             secondYearSecondOrder.setVisibility(View.GONE);
             secondYearSecondGrade.setVisibility(View.GONE);
             secondYearSecondTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getThirdOrder().equals("") || basicGrade.getThirdGrade()== 0){
+        if(Objects.isNull(basicGrade.getThirdOrder()) || basicGrade.getThirdGrade()== 0){
             secondYearThirdOrder.setVisibility(View.GONE);
             secondYearThirdGrade.setVisibility(View.GONE);
             secondYearThirdTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getFourthOrder().equals("") || basicGrade.getFourthGrade()== 0){
+        if(Objects.isNull(basicGrade.getFourthOrder()) || basicGrade.getFourthGrade()== 0){
             secondYearForthOrder.setVisibility(View.GONE);
             secondYearForthGrade.setVisibility(View.GONE);
             secondYearForthTitle.setVisibility(View.GONE);
         }
-        if(basicGrade.getFifthOrder().equals("") || basicGrade.getFifthGrade()== 0){
+        if(Objects.isNull(basicGrade.getFifthOrder()) || basicGrade.getFifthGrade()== 0){
             secondYearFifthOrder.setVisibility(View.GONE);
             secondYearFifthGrade.setVisibility(View.GONE);
             secondYearFifthTitle.setVisibility(View.GONE);
@@ -195,13 +198,10 @@ public class BasicDialog {
     private void setFavoriteButton(Favorite favorite) {
         favoriteButton = view.findViewById(R.id.favorite_button);
         setFavoriteButtonDrawable(favorite);
-        favoriteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Favorite favorite = new Favorite(Config.TABLE_NAME_BASIC, firstYearGrade.getSchool(), firstYearGrade.getDepartment());
-                Favorite.saveOrDelete(favorite);
-                setFavoriteButtonDrawable(favorite);
-            }
+        favoriteButton.setOnClickListener(v -> {
+            Favorite favorite1 = new Favorite(Config.TABLE_NAME_BASIC, firstYearGrade.getSchool(), firstYearGrade.getDepartment());
+            Favorite.saveOrDelete(favorite1);
+            setFavoriteButtonDrawable(favorite1);
         });
     }
 

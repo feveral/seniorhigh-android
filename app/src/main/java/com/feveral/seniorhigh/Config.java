@@ -12,7 +12,7 @@ public class Config {
     public static final String TABLE_NAME_FAVORITE = "Favorite";
 
     public static final String DESIGNATED_FIRST_YEAR = "113";
-    public static final String DESIGNATED_SECOND_YEAR = "113";
+    public static final String DESIGNATED_SECOND_YEAR = "112";
 
     public static final String BASIC_FIRST_YEAR = "114";
     public static final String BASIC_SECOND_YEAR = "114";
