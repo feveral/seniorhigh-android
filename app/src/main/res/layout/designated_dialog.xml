@@ -49,6 +49,22 @@
             android:paddingLeft="@dimen/settingPadding"
             android:textSize="@dimen/textMedium"
             android:textColor="@color/black"
+            android:text="總分 "
+            android:paddingBottom="@dimen/settingPadding"/>
+        <TextView
+            android:id="@+id/dialog_first_all_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textMedium"
+            android:textColor="@color/dark_yellow"
+            android:paddingBottom="@dimen/settingPadding"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/settingPadding"
+            android:textSize="@dimen/textMedium"
+            android:textColor="@color/black"
             android:text="    人數 "
             android:paddingBottom="@dimen/settingPadding"/>
 
@@ -94,6 +110,23 @@
             android:paddingBottom="@dimen/settingPadding"/>
         <TextView
             android:id="@+id/dialog_second_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textMedium"
+            android:textColor="@color/dark_yellow"
+            android:paddingBottom="@dimen/settingPadding"/>
+
+        <TextView
+            android:id="@+id/dialog_second_all_grade_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/settingPadding"
+            android:textSize="@dimen/textMedium"
+            android:textColor="@color/black"
+            android:text="總分 "
+            android:paddingBottom="@dimen/settingPadding"/>
+        <TextView
+            android:id="@+id/dialog_second_all_grade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/textMedium"

@@ -27,11 +27,13 @@ public class DesignatedDialog {
     private TextView firstYearView;
     private TextView firstWeightView;
     private TextView firstBalanceView;
+    private TextView firstAllGradeView;
     private TextView firstPeopleView;
 
     private TextView secondYearView;
     private TextView secondWeightView;
     private TextView secondBalanceView;
+    private TextView secondAllGradeView;
     private TextView secondPeopleView;
     private ImageButton favoriteButton;
 
@@ -48,10 +50,12 @@ public class DesignatedDialog {
         firstYearView = (TextView) view.findViewById(R.id.dialog_first_year);
         firstWeightView = (TextView) view.findViewById(R.id.dialog_first_weight);
         firstBalanceView = (TextView) view.findViewById(R.id.dialog_first_balance);
+        firstAllGradeView = (TextView) view.findViewById(R.id.dialog_first_all_grade);
         firstPeopleView = (TextView) view.findViewById(R.id.dialog_first_people);
         secondYearView = (TextView) view.findViewById(R.id.dialog_second_year);
         secondWeightView = (TextView) view.findViewById(R.id.dialog_second_weight);
         secondBalanceView = (TextView) view.findViewById(R.id.dialog_second_balance);
+        secondAllGradeView = (TextView) view.findViewById(R.id.dialog_second_all_grade);
         secondPeopleView = (TextView) view.findViewById(R.id.dialog_second_people);
     }
 
@@ -66,6 +70,7 @@ public class DesignatedDialog {
         firstYearView.setText(grade.getYearString());
         firstWeightView.setText(grade.getWeightString());
         firstBalanceView.setText(grade.getBalanceString());
+        firstAllGradeView.setText(String.valueOf(grade.getAllGrade()));
         firstPeopleView.setText(grade.getPeopleString());
         return this;
     }
@@ -75,6 +80,7 @@ public class DesignatedDialog {
         secondYearView.setText(grade.getYearString());
         secondWeightView.setText(grade.getWeightString());
         secondBalanceView.setText(grade.getBalanceString());
+        secondAllGradeView.setText(String.valueOf(grade.getAllGrade()));
         secondPeopleView.setText(grade.getPeopleString());
         return this;
     }
