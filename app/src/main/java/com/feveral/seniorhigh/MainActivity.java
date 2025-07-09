@@ -96,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.sidebar_item_favorite:
                         switchFragment("FavoriteFragment");
                         break;
-                    case R.id.sidebar_item_widget:
-                        switchFragment("WidgetSettingFragment");
-                        break;
+//                    case R.id.sidebar_item_widget:
+//                        switchFragment("WidgetSettingFragment");
+//                        break;
                     default:
                         return false;
                 }
@@ -135,11 +135,11 @@ public class MainActivity extends AppCompatActivity {
                 sideBar.setItemTextColor(getResources().getColorStateList(R.color.sidebar_favorite_color));
                 changeFragment(favoriteFragment);
                 break;
-            case "WidgetSettingFragment":
-                sideBar.setItemIconTintList(getResources().getColorStateList(R.color.sidebar_widget_color));
-                sideBar.setItemTextColor(getResources().getColorStateList(R.color.sidebar_widget_color));
-                changeFragment(widgetSettingFragment);
-                break;
+//            case "WidgetSettingFragment":
+//                sideBar.setItemIconTintList(getResources().getColorStateList(R.color.sidebar_widget_color));
+//                sideBar.setItemTextColor(getResources().getColorStateList(R.color.sidebar_widget_color));
+//                changeFragment(widgetSettingFragment);
+//                break;
         }
     }
 

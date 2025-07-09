@@ -21,11 +21,11 @@
             android:icon="@drawable/ic_favorite"
             android:title="@string/favorite_text">
         </item>
-        <item
-            android:id="@+id/sidebar_item_widget"
-            android:icon="@drawable/ic_count_down"
-            android:title="@string/count_down_text">
-        </item>
+<!--        <item-->
+<!--            android:id="@+id/sidebar_item_widget"-->
+<!--            android:icon="@drawable/ic_count_down"-->
+<!--            android:title="@string/count_down_text">-->
+<!--        </item>-->
         <item
             android:id="@+id/sidebar_item_response"
             android:icon="@drawable/ic_response"
