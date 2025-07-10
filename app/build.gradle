@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 
+def slackWebhookUrl = project.rootProject.file("local.properties").withInputStream {
+    def props = new Properties()
+    props.load(it)
+    return props.getProperty("slackWebhookUrl", "")
+}
+
 android {
     compileSdkVersion 32
     buildToolsVersion "30.0.1"
@@ -11,6 +17,7 @@ android {
         versionName "1.12.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        buildConfigField "String", "SLACK_WEBHOOK_URL", "\"${slackWebhookUrl}\""
     }
     buildTypes {
         release {

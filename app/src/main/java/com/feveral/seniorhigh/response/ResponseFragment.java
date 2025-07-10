@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.feveral.seniorhigh.BaseFragment;
+import com.feveral.seniorhigh.BuildConfig;
 import com.feveral.seniorhigh.R;
 import com.feveral.seniorhigh.utility.HttpUtility;
 
@@ -46,8 +47,12 @@ public class ResponseFragment extends BaseFragment {
     }
 
     public void submitResponse(){
-        String body = String.format("{\"text\":\"Email: %s\nFeedback: %s\n \"}", responseEdit.getText().toString(), emailEdit.getText().toString());
-        HttpUtility.post("https://hooks.slack.com/services/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", body, (response) -> {});
+        if (responseEdit.getText().toString().isEmpty()) {
+            Toast.makeText(getContext(),"您還沒有填寫回饋~",Toast.LENGTH_LONG).show();
+            return;
+        }
+        String body = String.format("{\"text\":\"Email: %s\nFeedback: %s\n \"}", emailEdit.getText().toString(), responseEdit.getText().toString());
+        HttpUtility.post(BuildConfig.SLACK_WEBHOOK_URL, body, (response) -> {});
         responseEdit.setText("");
         emailEdit.setText("");
         Toast.makeText(getContext(),"您的回復我們已經收到了~謝謝您的肯定與支持",Toast.LENGTH_LONG).show();
