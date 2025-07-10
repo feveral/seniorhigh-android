@@ -19,12 +19,14 @@ import android.widget.TextView;
 
 import com.feveral.seniorhigh.R;
 import com.feveral.seniorhigh.utility.AdUtility;
+import com.feveral.seniorhigh.utility.UIUtility;
 import com.google.android.material.textfield.TextInputEditText;
 
 import static com.feveral.seniorhigh.animation.MyAnimation.getDefaultAnimator;
 
 public class DesignatedSearchActivity extends AppCompatActivity {
 
+    Toolbar _toolbar;
     RecyclerView _recyclerView;
     DesignatedSearchAdapter _searchListAdapter;
     TextInputEditText _searchTextField;
@@ -37,16 +39,17 @@ public class DesignatedSearchActivity extends AppCompatActivity {
         setStatusBarColor();
         setSchoolRecyclerView();
         setSearchTextField();
+        UIUtility.adjustToolbarWindowInsets(_toolbar, getTheme(), getResources());
         AdUtility.loadAd(findViewById(R.id.adView));
     }
 
     public void setToolBar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.primary));
-        setSupportActionBar(toolbar);
+        _toolbar = findViewById(R.id.toolbar);
+        _toolbar.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.primary));
+        setSupportActionBar(_toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
+        _toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

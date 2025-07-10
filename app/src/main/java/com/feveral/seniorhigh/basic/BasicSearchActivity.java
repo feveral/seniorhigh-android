@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.feveral.seniorhigh.utility.AdUtility;
+import com.feveral.seniorhigh.utility.UIUtility;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -20,12 +21,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.feveral.seniorhigh.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -34,6 +33,7 @@ import static com.feveral.seniorhigh.animation.MyAnimation.getDefaultAnimator;
 
 public class BasicSearchActivity extends AppCompatActivity {
 
+    Toolbar _toolbar;
     RecyclerView _recyclerView;
     BasicSearchAdapter _searchListAdapter;
     TextInputEditText _searchTextField;
@@ -46,22 +46,18 @@ public class BasicSearchActivity extends AppCompatActivity {
         setStatusBarColor();
         setSearchTextField();
         setSchoolRecyclerView();
+        UIUtility.adjustToolbarWindowInsets(_toolbar, getTheme(), getResources());
         AdUtility.loadAd(findViewById(R.id.adView));
     }
 
     private void setToolBar(){
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.basic_grade_text);
-        toolbar.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.primary));
-        setSupportActionBar(toolbar);
+        _toolbar = findViewById(R.id.toolbar);
+        _toolbar.setTitle(R.string.basic_grade_text);
+        _toolbar.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.primary));
+        setSupportActionBar(_toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        _toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

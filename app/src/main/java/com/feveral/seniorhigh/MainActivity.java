@@ -12,8 +12,13 @@ import com.feveral.seniorhigh.database.UserDatabase;
 import com.feveral.seniorhigh.unify.UnifySearchActivity;
 import com.feveral.seniorhigh.utility.AdUtility;
 import com.feveral.seniorhigh.utility.DelayUtility;
+import com.feveral.seniorhigh.utility.UIUtility;
 import com.feveral.seniorhigh.widget.WidgetSettingFragment;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -23,8 +28,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -63,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         AdUtility.setTestDeviceIds();
         AdUtility.initialize(getBaseContext());
         DelayUtility.delay(5, () -> AdUtility.loadAd(findViewById(R.id.adView)));
+        UIUtility.adjustToolbarWindowInsets(toolbar, getTheme(), getResources());
     }
 
     @Override

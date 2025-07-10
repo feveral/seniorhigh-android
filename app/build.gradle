@@ -12,9 +12,9 @@ android {
     defaultConfig {
         applicationId "com.feveral.seniorhigh"
         minSdkVersion 19
-        targetSdkVersion 33
-        versionCode 18
-        versionName "1.12.0"
+        targetSdkVersion 35
+        versionCode 19
+        versionName "1.13.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         buildConfigField "String", "SLACK_WEBHOOK_URL", "\"${slackWebhookUrl}\""

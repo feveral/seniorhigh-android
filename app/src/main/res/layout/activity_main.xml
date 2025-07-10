@@ -5,21 +5,18 @@
     android:id="@+id/drawer_main"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        android:layout_height="match_parent">
         <include
             layout="@layout/toolbar">
         </include>
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:layout_marginBottom="55dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             />
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
@@ -30,7 +27,7 @@
             ads:adSize="BANNER"
             ads:adUnitId="@string/main_banner_ad_unit_id">
         </com.google.android.gms.ads.AdView>
-    </RelativeLayout>
+    </LinearLayout>
 
 
     <com.google.android.material.navigation.NavigationView
@@ -38,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:paddingTop="?attr/actionBarSize"
         android:background="@color/white"
         app:headerLayout="@layout/navigation_header"
         app:theme="@style/NavigationViewStyle"
