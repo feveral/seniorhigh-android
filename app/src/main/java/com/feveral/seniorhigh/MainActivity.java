@@ -10,6 +10,7 @@ import com.feveral.seniorhigh.basic.BasicSearchActivity;
 import com.feveral.seniorhigh.database.GradeDatabase;
 import com.feveral.seniorhigh.database.UserDatabase;
 import com.feveral.seniorhigh.unify.UnifySearchActivity;
+import com.feveral.seniorhigh.utility.AdUtility;
 import com.feveral.seniorhigh.widget.WidgetSettingFragment;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.FragmentTransaction;
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         setupSidePanel();
         setToggle();
         switchFragment("DesignatedFragment");
+        AdUtility.setTestDeviceIds();
+        AdUtility.initialize(getBaseContext());
+        AdUtility.loadAd(findViewById(R.id.adView));
     }
 
     @Override

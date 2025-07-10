@@ -18,9 +18,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.feveral.seniorhigh.R;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import com.feveral.seniorhigh.utility.AdUtility;
 import com.google.android.material.textfield.TextInputEditText;
 
 import static com.feveral.seniorhigh.animation.MyAnimation.getDefaultAnimator;
@@ -39,6 +37,7 @@ public class DesignatedSearchActivity extends AppCompatActivity {
         setStatusBarColor();
         setSchoolRecyclerView();
         setSearchTextField();
+        AdUtility.loadAd(findViewById(R.id.adView));
     }
 
     public void setToolBar() {

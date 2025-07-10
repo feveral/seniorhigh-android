@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
+import com.feveral.seniorhigh.utility.AdUtility;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -45,6 +46,7 @@ public class BasicSearchActivity extends AppCompatActivity {
         setStatusBarColor();
         setSearchTextField();
         setSchoolRecyclerView();
+        AdUtility.loadAd(findViewById(R.id.adView));
     }
 
     private void setToolBar(){

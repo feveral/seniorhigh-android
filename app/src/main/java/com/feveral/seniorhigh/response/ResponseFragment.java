@@ -11,8 +11,7 @@ import android.widget.Toast;
 
 import com.feveral.seniorhigh.BaseFragment;
 import com.feveral.seniorhigh.R;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.feveral.seniorhigh.utility.HttpUtility;
 
 import java.util.Date;
 
@@ -26,14 +25,10 @@ public class ResponseFragment extends BaseFragment {
     private EditText responseEdit;
     private EditText emailEdit;
     private Button submitButton;
-    private DatabaseReference firebaseReference;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        firebaseReference = database.getReference();
-        firebaseReference.child("response").child("size").setValue(1);
     }
 
     @Override
@@ -47,18 +42,12 @@ public class ResponseFragment extends BaseFragment {
     }
 
     public void setSubmitButtonClick(){
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                submitResponse();
-            }
-        });
+        submitButton.setOnClickListener(view -> submitResponse());
     }
 
     public void submitResponse(){
-        Date date = new Date();
-        firebaseReference.child("response").child(date.toString()).child("comment").setValue(responseEdit.getText().toString());
-        firebaseReference.child("response").child(date.toString()).child("email").setValue(emailEdit.getText().toString());
+        String body = String.format("{\"text\":\"Email: %s\nFeedback: %s\n \"}", responseEdit.getText().toString(), emailEdit.getText().toString());
+        HttpUtility.post("https://hooks.slack.com/services/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", body, (response) -> {});
         responseEdit.setText("");
         emailEdit.setText("");
         Toast.makeText(getContext(),"您的回復我們已經收到了~謝謝您的肯定與支持",Toast.LENGTH_LONG).show();

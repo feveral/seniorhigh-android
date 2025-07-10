@@ -53,6 +53,8 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/search_banner_ad_unit_id"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></com.google.android.gms.ads.AdView>
+        app:layout_constraintTop_toTopOf="parent">
+    </com.google.android.gms.ads.AdView>
 </androidx.constraintlayout.widget.ConstraintLayout>
