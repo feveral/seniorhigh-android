@@ -1,6 +1,7 @@
 package com.feveral.seniorhigh.utility;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -16,8 +17,10 @@ public class AdUtility {
     }
 
     public static void loadAd(AdView adView) {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        adView.post(() -> {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        });
     }
 
     public static void setTestDeviceIds() {
