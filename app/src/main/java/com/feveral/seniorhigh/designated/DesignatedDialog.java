@@ -104,11 +104,14 @@ public class DesignatedDialog {
     private void setSecondGone(){
         TextView secondBalancePromptView = view.findViewById(R.id.dialog_second_balance_prompt);
         TextView secondPeoplePromptView = view.findViewById(R.id.dialog_second_people_prompt);
+        TextView secondAllGradePromptView = view.findViewById(R.id.dialog_second_all_grade_prompt);
         secondBalancePromptView.setVisibility(View.GONE);
         secondPeoplePromptView.setVisibility(View.GONE);
+        secondAllGradePromptView.setVisibility(View.GONE);
         secondYearView.setVisibility(View.GONE);
         secondWeightView.setVisibility(View.GONE);
         secondBalanceView.setVisibility(View.GONE);
+        secondAllGradeView.setVisibility(View.GONE);
         secondPeopleView.setVisibility(View.GONE);
     }
 
@@ -116,13 +119,10 @@ public class DesignatedDialog {
         Favorite favorite = new Favorite(Config.TABLE_NAME_DESIGNATED, firstYearGrade.getSchool(), firstYearGrade.getDepartment());
         favoriteButton = view.findViewById(R.id.favorite_button);
         setFavoriteButtonDrawable(favorite);
-        favoriteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Favorite favorite = new Favorite(Config.TABLE_NAME_DESIGNATED, firstYearGrade.getSchool(), firstYearGrade.getDepartment());
-                Favorite.saveOrDelete(favorite);
-                setFavoriteButtonDrawable(favorite);
-            }
+        favoriteButton.setOnClickListener(v -> {
+            Favorite favorite1 = new Favorite(Config.TABLE_NAME_DESIGNATED, firstYearGrade.getSchool(), firstYearGrade.getDepartment());
+            Favorite.saveOrDelete(favorite1);
+            setFavoriteButtonDrawable(favorite1);
         });
     }
 
