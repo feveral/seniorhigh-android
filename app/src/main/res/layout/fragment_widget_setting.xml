@@ -40,7 +40,7 @@
         android:paddingRight="@dimen/settingPadding"
         android:textSize="@dimen/textMedium"
         android:textColor="@color/black"
-        android:text="指考剩下 183 天"/>
+        android:text="分科剩下 183 天"/>
 
     <Button
         android:id="@+id/widget_choose_button_unify"

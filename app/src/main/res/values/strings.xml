@@ -4,7 +4,7 @@
     <string name="close">關閉</string>
     <string name="search_chin">搜尋</string>
     <string name="search_prompt">輸入關鍵字以搜尋校系成績</string>
-    <string name="designated_grade_text">指考分數</string>
+    <string name="designated_grade_text">分科分數</string>
     <string name="basic_grade_text">學測分數</string>
     <string name="unify_grade_text">統測分數</string>
     <string name="response_text">意見回饋</string>

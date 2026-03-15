@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class FavoriteListAdapter extends BaseExpandableListAdapter {
 
-    private String[] groupList = {"指考", "學測", "統測"};
+    private String[] groupList = {"分科", "學測", "統測"};
     private ArrayList<Favorite> _designatedFavoriteList;
     private ArrayList<Favorite> _basicFavoriteList;
     private ArrayList<Favorite> _unifyFavoriteList;

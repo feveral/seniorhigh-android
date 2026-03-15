@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setToolbar(){
         toolbar = findViewById(R.id.toolbar_main);
-        toolbar.setTitle("指考成績");
+        toolbar.setTitle("分科成績");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);

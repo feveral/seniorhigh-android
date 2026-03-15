@@ -68,7 +68,7 @@ public class DesignatedFragment extends BaseFragment {
                 if(position==0 && schoolAdapter.getStatus().equals("department"))
                     setToolbarTitle(schoolAdapter.getSchool());
                 else
-                    setToolbarTitle("指考分數");
+                    setToolbarTitle("分科分數");
             }
 
             @Override
@@ -130,7 +130,7 @@ public class DesignatedFragment extends BaseFragment {
     public boolean onBackPress(){
         if(schoolAdapter.getStatus().equals("department")){
             schoolAdapter.onBackPress();
-            setToolbarTitle("指考分數");
+            setToolbarTitle("分科分數");
             return true;
         }
         return false;

@@ -42,7 +42,7 @@ public class CountDownManager {
     public String getRemainText() {
         String remainText = "";
         if (_examine.equals(Config.TABLE_NAME_DESIGNATED)) {
-            remainText = "指考";
+            remainText = "分科";
         } else if (_examine.equals(Config.TABLE_NAME_BASIC)) {
             remainText = "學測";
         } else if (_examine.equals(Config.TABLE_NAME_UNIFY)) {
