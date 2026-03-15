@@ -127,21 +127,21 @@ public class SearchDesignatedGrade {
 
     private Cursor getFirstGroupCursor(String year){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String selection = "year=? AND (mathB>0 OR mathBasic>0)";
+        String selection = "year=? AND (mathB>0 OR mathBasic>0) AND (skill=0 OR skill IS NULL)";
         String[] selectionArgs = {year};
         return database.query("Designated",COLUMNS,selection,selectionArgs,null,null,null);
     }
 
     private Cursor getSecondGroupCursor(String year){
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String selection = "year=? AND ((mathA>0 OR mathAdvance>0) AND biological is NULL)";
+        String selection = "year=? AND ((mathA>0 OR mathAdvance>0) AND biological is NULL) AND (skill=0 OR skill IS NULL)";
         String[] selectionArgs = {year};
         return database.query("Designated",COLUMNS,selection,selectionArgs,null,null,null);
     }
 
     private Cursor getThirdGroupCursor(String year) {
         SQLiteDatabase database = GradeDatabase.getDatabase();
-        String selection = "year=? AND biological>0";
+        String selection = "year=? AND biological>0 AND (skill=0 OR skill IS NULL)";
         String[] selectionArgs = {year};
         return database.query("Designated", COLUMNS, selection, selectionArgs, null, null, null);
     }

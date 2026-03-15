@@ -7,14 +7,14 @@ def slackWebhookUrl = project.rootProject.file("local.properties").withInputStre
 }
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     buildToolsVersion "30.0.1"
     defaultConfig {
         applicationId "com.feveral.seniorhigh"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 35
-        versionCode 19
-        versionName "1.13.0"
+        versionCode 21
+        versionName "1.15.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         buildConfigField "String", "SLACK_WEBHOOK_URL", "\"${slackWebhookUrl}\""
@@ -24,6 +24,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    packagingOptions {
+        exclude 'commonMain/default/manifest'
+        pickFirst 'commonMain/default/linkdata/root_package/*'
+        pickFirst 'commonMain/default/linkdata/module'
+        pickFirst 'META-INF/kotlin-project-structure-metadata.json'
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,7 +47,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0-beta01'
     implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.gms:play-services-ads:21.1.0'
+    implementation 'com.google.android.gms:play-services-ads:25.0.0'
     testImplementation 'junit:junit:4.12'
 }
 

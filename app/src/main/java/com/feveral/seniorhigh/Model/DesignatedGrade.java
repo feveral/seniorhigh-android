@@ -300,6 +300,10 @@ public class DesignatedGrade  extends BaseGrade {
 
 
     public static ArrayList<DesignatedGrade> findByKeyWord(String year, String keyWord) {
+        return findByKeyWord(year, keyWord, true);
+    }
+
+    public static ArrayList<DesignatedGrade> findByKeyWord(String year, String keyWord, boolean includeSkill) {
         if (keyWord.length() == 0) {
             return new ArrayList<>();
         }
@@ -308,7 +312,11 @@ public class DesignatedGrade  extends BaseGrade {
         for(int i = 0 ; i < keyWord.length(); i++) {
             keyWordPattern = keyWordPattern + (keyWord.charAt(i) + "%");
         }
-        Cursor cursor = database.rawQuery("SELECT * FROM Designated WHERE year = ? AND (school LIKE ? OR department LIKE ?)",
+        StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM Designated WHERE year = ? AND (school LIKE ? OR department LIKE ?)");
+        if (!includeSkill) {
+            sqlBuilder.append(" AND (skill = 0 OR skill IS NULL)");
+        }
+        Cursor cursor = database.rawQuery(sqlBuilder.toString(),
                 new String[] {year, keyWordPattern, keyWordPattern});
         ArrayList<DesignatedGrade> designatedGradeList = new ArrayList<>();
         while(cursor.moveToNext()) {

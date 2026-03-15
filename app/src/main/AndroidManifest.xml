@@ -68,8 +68,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
-            android:name="com.google.android.gms.ads.com.feveral.seniorhigh"
-            android:value="ca-app-pub-7439674685628581~8953103392" />
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/ad_application_id" />
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />

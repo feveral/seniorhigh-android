@@ -97,7 +97,7 @@ public class DesignatedSearchAdapter extends RecyclerView.Adapter<DesignatedSear
     public void setKeyWord(String keyWord){
         _keyword = keyWord;
         notifyItemRangeRemoved(0, getItemCount());
-        _gradeList = DesignatedGrade.findByKeyWord(_firstYear, _keyword);
+        _gradeList = DesignatedGrade.findByKeyWord(_firstYear, _keyword, true);
         DesignatedGrade.sortHighToLow(_gradeList);
         notifyItemRangeInserted(0, getItemCount());
     }
