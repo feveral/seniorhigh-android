@@ -94,7 +94,7 @@ public class BasicAdapter extends RecyclerView.Adapter<BasicAdapter.ViewHolder>{
         }
         else if(status.equals("department")) {
             holder.itemTitle.setText(TextUtils.shortStringIfTooLong(departmentList.get(position).getDepartment()));
-            holder.itemRemark.setText("");
+            holder.itemRemark.setText(departmentList.get(position).getLastGradeString());
             holder.setOnClickListener(new ViewHolder.ViewHolderClick() {
                 @Override
                 public void clickOnView(View v, int position) {
@@ -121,6 +121,10 @@ public class BasicAdapter extends RecyclerView.Adapter<BasicAdapter.ViewHolder>{
 
     public String getStatus() {
         return status;
+    }
+
+    public String getSchool() {
+        return school;
     }
 
     public void onBackPress(){

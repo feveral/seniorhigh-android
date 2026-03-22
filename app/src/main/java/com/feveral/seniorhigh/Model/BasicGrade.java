@@ -5,7 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.feveral.seniorhigh.database.GradeDatabase;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by feveral on 2017/8/15.
@@ -137,6 +139,91 @@ public class BasicGrade{
 
     public int getPeople() {
         return people;
+    }
+
+    private static boolean isNormalSubject(String order) {
+        if (order == null || order.isEmpty()) return false;
+        return order.contains("國") || order.contains("英") || order.contains("數") ||
+               order.contains("社") || order.contains("自");
+    }
+
+    public double getLastGrade() {
+        if (fifthGrade > 0 && isNormalSubject(fifthOrder)) return fifthGrade;
+        if (forthGrade > 0 && isNormalSubject(forthOrder)) return forthGrade;
+        if (thirdGrade > 0 && isNormalSubject(thirdOrder)) return thirdGrade;
+        if (secondGrade > 0 && isNormalSubject(secondOrder)) return secondGrade;
+        if (firstGrade > 0 && isNormalSubject(firstOrder)) return firstGrade;
+        return 0;
+    }
+
+    public String getLastOrder() {
+        if (fifthGrade > 0 && isNormalSubject(fifthOrder)) return fifthOrder;
+        if (forthGrade > 0 && isNormalSubject(forthOrder)) return forthOrder;
+        if (thirdGrade > 0 && isNormalSubject(thirdOrder)) return thirdOrder;
+        if (secondGrade > 0 && isNormalSubject(secondOrder)) return secondOrder;
+        if (firstGrade > 0 && isNormalSubject(firstOrder)) return firstOrder;
+        return "";
+    }
+
+    public int getSubjectCount() {
+        int count = 0;
+        if (firstGrade > 0 && isNormalSubject(firstOrder)) count++;
+        if (secondGrade > 0 && isNormalSubject(secondOrder)) count++;
+        if (thirdGrade > 0 && isNormalSubject(thirdOrder)) count++;
+        if (forthGrade > 0 && isNormalSubject(forthOrder)) count++;
+        if (fifthGrade > 0 && isNormalSubject(fifthOrder)) count++;
+        return count;
+    }
+
+    private static int countSubjectsInOrder(String order) {
+        if (order == null || order.isEmpty()) return 1;
+        int count = 0;
+        if (order.contains("國")) count++;
+        if (order.contains("英")) count++;
+        if (order.contains("數")) count++;
+        if (order.contains("社")) count++;
+        if (order.contains("自")) count++;
+        return Math.max(count, 1);
+    }
+
+    public double getAverageLastGrade() {
+        double sum = 0;
+        int count = 0;
+        if (firstGrade > 0 && isNormalSubject(firstOrder)) {
+            sum += firstGrade / (double) countSubjectsInOrder(firstOrder);
+            count++;
+        }
+        if (secondGrade > 0 && isNormalSubject(secondOrder)) {
+            sum += secondGrade / (double) countSubjectsInOrder(secondOrder);
+            count++;
+        }
+        if (thirdGrade > 0 && isNormalSubject(thirdOrder)) {
+            sum += thirdGrade / (double) countSubjectsInOrder(thirdOrder);
+            count++;
+        }
+        if (forthGrade > 0 && isNormalSubject(forthOrder)) {
+            sum += forthGrade / (double) countSubjectsInOrder(forthOrder);
+            count++;
+        }
+        if (fifthGrade > 0 && isNormalSubject(fifthOrder)) {
+            sum += fifthGrade / (double) countSubjectsInOrder(fifthOrder);
+            count++;
+        }
+        if (count == 0) return 0;
+        return sum / count;
+    }
+
+    public String getNormalSubjectsString() {
+        return getLastOrder().replace("+", "");
+    }
+
+    public String getLastGradeString() {
+        DecimalFormat df = new DecimalFormat("0.##");
+        return getNormalSubjectsString() + "\n" + df.format(getLastGrade());
+    }
+
+    public static void sortHighToLow(ArrayList<BasicGrade> list) {
+        Collections.sort(list, (a, b) -> Double.compare(b.getAverageLastGrade(), a.getAverageLastGrade()));
     }
 
     public static BasicGrade cursorToGrade(Cursor cursor){

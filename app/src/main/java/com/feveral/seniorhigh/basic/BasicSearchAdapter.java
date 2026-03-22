@@ -72,6 +72,7 @@ public class BasicSearchAdapter extends RecyclerView.Adapter<BasicSearchAdapter.
     public void onBindViewHolder(@NonNull BasicSearchAdapter.ViewHolder holder, int position) {
         holder.itemTitle.setText(_gradeList.get(position).getSchool());
         holder.itemSubtitle.setText(TextUtils.shortStringIfTooLong(_gradeList.get(position).getDepartment()));
+        holder.itemRemark.setText(_gradeList.get(position).getLastGradeString());
         holder.setOnClickListener(new BasicSearchAdapter.ViewHolder.ViewHolderClick() {
             @Override
             public void clickOnView(View view, int position) {
@@ -96,6 +97,7 @@ public class BasicSearchAdapter extends RecyclerView.Adapter<BasicSearchAdapter.
         _keyword = keyWord;
         notifyItemRangeRemoved(0, getItemCount());
         _gradeList = BasicGrade.findByKeyWord(_firstYear, _keyword);
+        BasicGrade.sortHighToLow(_gradeList);
         notifyItemRangeInserted(0, getItemCount());
     }
 

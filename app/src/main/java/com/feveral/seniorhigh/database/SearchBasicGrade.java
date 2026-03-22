@@ -70,6 +70,60 @@ public class SearchBasicGrade {
         return database.query(_tableName,columns,selection,selectionArgs,null,null,null);
     }
 
+    public ArrayList<BasicGrade> getFirstGroupList(String year) {
+        ArrayList<BasicGrade> list = new ArrayList<>();
+        Cursor cursor = getFirstGroupCursor(year);
+        while (cursor.moveToNext()) {
+            list.add(BasicGrade.cursorToGrade(cursor));
+        }
+        return list;
+    }
+
+    public ArrayList<BasicGrade> getSecondGroupList(String year) {
+        ArrayList<BasicGrade> list = new ArrayList<>();
+        Cursor cursor = getSecondGroupCursor(year);
+        while (cursor.moveToNext()) {
+            list.add(BasicGrade.cursorToGrade(cursor));
+        }
+        return list;
+    }
+
+    private static final String HAS_MATH_A =
+            "(firstOrder LIKE '%數A%' OR secondOrder LIKE '%數A%' OR thirdOrder LIKE '%數A%' OR fourthOrder LIKE '%數A%' OR fifthOrder LIKE '%數A%')";
+    private static final String HAS_MATH_B =
+            "(firstOrder LIKE '%數B%' OR secondOrder LIKE '%數B%' OR thirdOrder LIKE '%數B%' OR fourthOrder LIKE '%數B%' OR fifthOrder LIKE '%數B%')";
+    private static final String HAS_SOCIAL =
+            "(firstOrder LIKE '%社%' OR secondOrder LIKE '%社%' OR thirdOrder LIKE '%社%' OR fourthOrder LIKE '%社%' OR fifthOrder LIKE '%社%')";
+    private static final String HAS_NATURE =
+            "(firstOrder LIKE '%自然%' OR secondOrder LIKE '%自然%' OR thirdOrder LIKE '%自然%' OR fourthOrder LIKE '%自然%' OR fifthOrder LIKE '%自然%')";
+    // 優先歸一類組的科系名稱關鍵字
+    private static final String IS_FIRST_GROUP_DEPT =
+            "(department LIKE '%金融%' OR department LIKE '%經濟%' OR department LIKE '%財務%' OR department LIKE '%會計%')";
+
+    private Cursor getFirstGroupCursor(String year) {
+        SQLiteDatabase database = GradeDatabase.getDatabase();
+        String[] columns = {"school", "year", "department", "firstOrder", "firstGrade", "secondOrder", "secondGrade",
+                "thirdOrder", "thirdGrade", "fourthOrder", "fourthGrade", "fifthOrder", "fifthGrade", "people"};
+        // 金融/經濟/財務/會計科系優先歸一類；數B → 一類；無數A且有社會 → 一類
+        String selection = "year=? AND (" + IS_FIRST_GROUP_DEPT +
+                " OR " + HAS_MATH_B +
+                " OR (NOT " + HAS_MATH_A + " AND " + HAS_SOCIAL + "))";
+        String[] selectionArgs = {year};
+        return database.query(_tableName, columns, selection, selectionArgs, null, null, null);
+    }
+
+    private Cursor getSecondGroupCursor(String year) {
+        SQLiteDatabase database = GradeDatabase.getDatabase();
+        String[] columns = {"school", "year", "department", "firstOrder", "firstGrade", "secondOrder", "secondGrade",
+                "thirdOrder", "thirdGrade", "fourthOrder", "fourthGrade", "fifthOrder", "fifthGrade", "people"};
+        // 金融/經濟/財務/會計科系排除；數A → 二三類；無數B且有自然 → 二三類
+        String selection = "year=? AND NOT " + IS_FIRST_GROUP_DEPT +
+                " AND (" + HAS_MATH_A +
+                " OR (NOT " + HAS_MATH_B + " AND " + HAS_NATURE + "))";
+        String[] selectionArgs = {year};
+        return database.query(_tableName, columns, selection, selectionArgs, null, null, null);
+    }
+
     public BasicGrade getExactDepartmentGrade(String year , String school , String department){
         SQLiteDatabase database = GradeDatabase.getDatabase();
         String[] columns = {"school","year","department","firstOrder","firstGrade","secondOrder","secondGrade",
