@@ -254,7 +254,7 @@ public class BasicGrade{
         for(int i = 0 ; i < keyWord.length(); i++) {
             keyWordPattern = keyWordPattern + (keyWord.charAt(i) + "%");
         }
-        Cursor cursor = database.rawQuery("SELECT * FROM Basic WHERE year = ? AND (school LIKE ? OR department LIKE ?)", new String[] {year, keyWordPattern, keyWordPattern});
+        Cursor cursor = database.rawQuery("SELECT * FROM Basic WHERE year = ? AND (school LIKE ? OR department LIKE ? OR school || department LIKE ?)", new String[] {year, keyWordPattern, keyWordPattern, keyWordPattern});
         ArrayList<BasicGrade> basicGradeList = new ArrayList<>();
         while(cursor.moveToNext()) {
             BasicGrade grade = BasicGrade.cursorToGrade(cursor);

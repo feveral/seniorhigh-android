@@ -312,12 +312,12 @@ public class DesignatedGrade  extends BaseGrade {
         for(int i = 0 ; i < keyWord.length(); i++) {
             keyWordPattern = keyWordPattern + (keyWord.charAt(i) + "%");
         }
-        StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM Designated WHERE year = ? AND (school LIKE ? OR department LIKE ?)");
+        StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM Designated WHERE year = ? AND (school LIKE ? OR department LIKE ? OR school || department LIKE ?)");
         if (!includeSkill) {
             sqlBuilder.append(" AND (skill = 0 OR skill IS NULL)");
         }
         Cursor cursor = database.rawQuery(sqlBuilder.toString(),
-                new String[] {year, keyWordPattern, keyWordPattern});
+                new String[] {year, keyWordPattern, keyWordPattern, keyWordPattern});
         ArrayList<DesignatedGrade> designatedGradeList = new ArrayList<>();
         while(cursor.moveToNext()) {
             DesignatedGrade grade = DesignatedGrade.cursorToGrade(cursor);

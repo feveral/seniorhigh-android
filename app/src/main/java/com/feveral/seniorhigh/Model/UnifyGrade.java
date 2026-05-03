@@ -96,7 +96,7 @@ public class UnifyGrade {
         for(int i = 0 ; i < keyWord.length(); i++) {
             keyWordPattern = keyWordPattern + (keyWord.charAt(i) + "%");
         }
-        Cursor cursor = database.rawQuery("SELECT * FROM Unify WHERE year = ? AND (school LIKE ? OR department LIKE ?)", new String[] {year, keyWordPattern, keyWordPattern});
+        Cursor cursor = database.rawQuery("SELECT * FROM Unify WHERE year = ? AND (school LIKE ? OR department LIKE ? OR school || department LIKE ?)", new String[] {year, keyWordPattern, keyWordPattern, keyWordPattern});
         ArrayList<UnifyGrade> unifyGradeList = new ArrayList<>();
         while(cursor.moveToNext()) {
             UnifyGrade grade = UnifyGrade.cursorToGrade(cursor);
@@ -138,4 +138,3 @@ public class UnifyGrade {
         return new UnifyGrade();
     }
 }
-

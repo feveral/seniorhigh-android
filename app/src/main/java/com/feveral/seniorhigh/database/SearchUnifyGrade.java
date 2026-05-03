@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.feveral.seniorhigh.Model.UnifyGrade;
+import com.feveral.seniorhigh.utility.TextUtils;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class SearchUnifyGrade {
     public ArrayList<String> findSchoolListFromKeyword(String year , String  keyWord){
         ArrayList<String> newSchoolList = new ArrayList<>();
         for(String s : getSchoolList(year))
-            if(s.contains(keyWord))
+            if(TextUtils.isFuzzyMatch(s, keyWord))
                 newSchoolList.add(s);
         return newSchoolList;
     }
@@ -27,7 +28,7 @@ public class SearchUnifyGrade {
     public ArrayList<UnifyGrade> findDepartmentListFromKeyword(String school , String year, String  keyWord){
         ArrayList<UnifyGrade> newDepartmentList = new ArrayList<>();
         for(UnifyGrade g : getDepartmentList(school,year))
-            if(g.getDepartment().contains(keyWord))
+            if(TextUtils.isFuzzyMatch(g.getDepartment(), keyWord) || TextUtils.isFuzzyMatch(g.getSchool() + g.getDepartment(), keyWord))
                 newDepartmentList.add(g);
         return newDepartmentList;
     }
@@ -35,7 +36,7 @@ public class SearchUnifyGrade {
     public ArrayList<UnifyGrade> findDepartmentGroupListFromKeyword(String year, String  departmentGroup,String  keyWord){
         ArrayList<UnifyGrade> newDepartmentGroupList = new ArrayList<>();
         for(UnifyGrade g : getDepartmentGroupList(year,departmentGroup))
-            if(g.getDepartment().contains(keyWord) || g.getSchool().contains(keyWord))
+            if(TextUtils.isFuzzyMatch(g.getDepartment(), keyWord) || TextUtils.isFuzzyMatch(g.getSchool(), keyWord) || TextUtils.isFuzzyMatch(g.getSchool() + g.getDepartment(), keyWord))
                 newDepartmentGroupList.add(g);
         return newDepartmentGroupList;
     }

@@ -5,6 +5,7 @@ import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.feveral.seniorhigh.Model.DesignatedGrade;
+import com.feveral.seniorhigh.utility.TextUtils;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class SearchDesignatedGrade {
     public ArrayList<String> findSchoolListFromKeyword(String year , String keyWord){
         ArrayList<String> newSchoolList = new ArrayList<>();
         for(String s : getSchoolList(year))
-            if(s.contains(keyWord))
+            if(TextUtils.isFuzzyMatch(s, keyWord))
                 newSchoolList.add(s);
         return newSchoolList;
     }
@@ -31,7 +32,7 @@ public class SearchDesignatedGrade {
     public ArrayList<DesignatedGrade> findDepartmentListFromKeyword(String school , String year, String  keyWord){
         ArrayList<DesignatedGrade> newDepartmentList = new ArrayList<>();
         for(DesignatedGrade g : getDepartmentList(school,year))
-            if(g.getDepartment().contains(keyWord))
+            if(TextUtils.isFuzzyMatch(g.getDepartment(), keyWord) || TextUtils.isFuzzyMatch(g.getSchool() + g.getDepartment(), keyWord))
                 newDepartmentList.add(g);
         return newDepartmentList;
     }
@@ -39,7 +40,7 @@ public class SearchDesignatedGrade {
     public ArrayList<DesignatedGrade> findFirstGroupListFromKeyword(String year , String keyWord){
         ArrayList<DesignatedGrade> newFirstGroupList = new ArrayList<>();
         for(DesignatedGrade g : getFirstGroupList(year))
-            if(g.getSchool().contains(keyWord) || g.getDepartment().contains(keyWord))
+            if(TextUtils.isFuzzyMatch(g.getSchool(), keyWord) || TextUtils.isFuzzyMatch(g.getDepartment(), keyWord) || TextUtils.isFuzzyMatch(g.getSchool() + g.getDepartment(), keyWord))
                 newFirstGroupList.add(g);
         return newFirstGroupList;
     }
@@ -47,7 +48,7 @@ public class SearchDesignatedGrade {
     public ArrayList<DesignatedGrade> findSecondGroupListFromKeyword(String year ,String keyWord){
         ArrayList<DesignatedGrade> newSecondGroupList = new ArrayList<>();
         for(DesignatedGrade g : getSecondGroupList(year))
-            if(g.getSchool().contains(keyWord) || g.getDepartment().contains(keyWord))
+            if(TextUtils.isFuzzyMatch(g.getSchool(), keyWord) || TextUtils.isFuzzyMatch(g.getDepartment(), keyWord) || TextUtils.isFuzzyMatch(g.getSchool() + g.getDepartment(), keyWord))
                 newSecondGroupList.add(g);
         return newSecondGroupList;
     }
@@ -55,7 +56,7 @@ public class SearchDesignatedGrade {
     public ArrayList<DesignatedGrade> findThirdGroupListFromKeyword(String year , String keyWord){
         ArrayList<DesignatedGrade> newThirdGroupList = new ArrayList<>();
         for(DesignatedGrade g : getThirdGroupList(year))
-            if(g.getSchool().contains(keyWord) || g.getDepartment().contains(keyWord))
+            if(TextUtils.isFuzzyMatch(g.getSchool(), keyWord) || TextUtils.isFuzzyMatch(g.getDepartment(), keyWord) || TextUtils.isFuzzyMatch(g.getSchool() + g.getDepartment(), keyWord))
                 newThirdGroupList.add(g);
         return newThirdGroupList;
     }

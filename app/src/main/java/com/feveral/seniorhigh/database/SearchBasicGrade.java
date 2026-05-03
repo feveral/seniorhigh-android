@@ -5,6 +5,7 @@ import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.feveral.seniorhigh.Model.BasicGrade;
+import com.feveral.seniorhigh.utility.TextUtils;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class SearchBasicGrade {
     public ArrayList<String> findSchoolListFromKeyword(String year , String  keyWord){
         ArrayList<String> newSchoolList = new ArrayList<>();
         for(String s : getSchoolList(year))
-            if(s.contains(keyWord))
+            if(TextUtils.isFuzzyMatch(s, keyWord))
                 newSchoolList.add(s);
         return newSchoolList;
     }
@@ -27,7 +28,7 @@ public class SearchBasicGrade {
     public ArrayList<BasicGrade> findDepartmentListFromKeyword(String school , String year, String  keyWord){
         ArrayList<BasicGrade> newDepartmentList = new ArrayList<>();
         for(BasicGrade g : getDepartmentList(school,year))
-            if(g.getDepartment().contains(keyWord))
+            if(TextUtils.isFuzzyMatch(g.getDepartment(), keyWord) || TextUtils.isFuzzyMatch(g.getSchool() + g.getDepartment(), keyWord))
                 newDepartmentList.add(g);
         return newDepartmentList;
     }
