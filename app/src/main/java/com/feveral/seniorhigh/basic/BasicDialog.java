@@ -122,8 +122,7 @@ public class BasicDialog {
     }
 
     public BasicDialog setSecondGrade(BasicGrade secondYearGrade){
-        // Set to null for disabling second year grade
-        setSecondYearViewGoneIfGradeNotExist(new BasicGrade());
+        setSecondYearViewGoneIfGradeNotExist(secondYearGrade);
         secondYearYearView.setText("-----"  + secondYearGrade.getYear() + "年度-----");
         secondYearFirstOrder.setText(secondYearGrade.getFirstOrder());
         secondYearFirstGrade.setText(formatDouble(secondYearGrade.getFirstGrade()));
