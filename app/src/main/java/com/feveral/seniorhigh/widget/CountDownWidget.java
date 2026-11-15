@@ -25,7 +25,8 @@ public class CountDownWidget extends AppWidgetProvider {
         views.setTextViewText(R.id.examine_prompt, remainText.substring(0,4));
         views.setTextViewText(R.id.remain_days, remainText.substring(4));
         Intent intent = new Intent(context, BrandActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
         views.setOnClickPendingIntent(R.id.widget_layout, pendingIntent);
     }
 
@@ -56,4 +57,3 @@ public class CountDownWidget extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
 }
-

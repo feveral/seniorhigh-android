@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 
 import com.feveral.seniorhigh.basic.BasicSearchActivity;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         setToolbar();
         setupSidePanel();
         setToggle();
+        setBackHandler();
         switchFragment("DesignatedFragment");
         AdUtility.setTestDeviceIds();
         AdUtility.initialize(getBaseContext());
@@ -93,27 +95,19 @@ public class MainActivity extends AppCompatActivity {
         sideBar.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.sidebar_item_designated:
-                        switchFragment("DesignatedFragment");
-                        break;
-                    case R.id.sidebar_item_basic:
-                        switchFragment("BasicFragment");
-                        break;
-                    case R.id.sidebar_item_unify:
-                        switchFragment("UnifyFragment");
-                        break;
-                    case R.id.sidebar_item_response:
-                        switchFragment("ResponseFragment");
-                        break;
-                    case R.id.sidebar_item_favorite:
-                        switchFragment("FavoriteFragment");
-                        break;
-//                    case R.id.sidebar_item_widget:
-//                        switchFragment("WidgetSettingFragment");
-//                        break;
-                    default:
-                        return false;
+                int itemId = menuItem.getItemId();
+                if (itemId == R.id.sidebar_item_designated) {
+                    switchFragment("DesignatedFragment");
+                } else if (itemId == R.id.sidebar_item_basic) {
+                    switchFragment("BasicFragment");
+                } else if (itemId == R.id.sidebar_item_unify) {
+                    switchFragment("UnifyFragment");
+                } else if (itemId == R.id.sidebar_item_response) {
+                    switchFragment("ResponseFragment");
+                } else if (itemId == R.id.sidebar_item_favorite) {
+                    switchFragment("FavoriteFragment");
+                } else {
+                    return false;
                 }
                 return true;
             }
@@ -177,23 +171,30 @@ public class MainActivity extends AppCompatActivity {
         setFragmentTitleAndColor();
     }
 
-    @Override
-    public void onBackPressed() {
-        if(currentFragment instanceof DesignatedFragment) {
-            if (!designatedFragment.onBackPress()) {
-                super.onBackPressed();
+    // Android 16+ (targetSdk 36) no longer calls onBackPressed() for back gestures,
+    // so back handling goes through OnBackPressedDispatcher instead.
+    private void setBackHandler() {
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (!onFragmentBackPress()) {
+                    setEnabled(false);
+                    getOnBackPressedDispatcher().onBackPressed();
+                    setEnabled(true);
+                }
             }
-        } else if (currentFragment instanceof  BasicFragment){
-            if (!basicFragment.onBackPress()) {
-                super.onBackPressed();
-            }
-        } else if (currentFragment instanceof  UnifyFragment){
-            if (!unifyFragment.onBackPress()) {
-                super.onBackPressed();
-            }
-        } else {
-            super.onBackPressed();
+        });
+    }
+
+    private boolean onFragmentBackPress() {
+        if (currentFragment instanceof DesignatedFragment) {
+            return designatedFragment.onBackPress();
+        } else if (currentFragment instanceof BasicFragment) {
+            return basicFragment.onBackPress();
+        } else if (currentFragment instanceof UnifyFragment) {
+            return unifyFragment.onBackPress();
         }
+        return false;
     }
 
     private void setToolbar(){

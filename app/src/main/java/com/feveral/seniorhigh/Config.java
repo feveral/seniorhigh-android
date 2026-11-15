@@ -11,8 +11,8 @@ public class Config {
     public static final String TABLE_NAME_UNIFY = "Unify";
     public static final String TABLE_NAME_FAVORITE = "Favorite";
 
-    public static final String DESIGNATED_FIRST_YEAR = "114";
-    public static final String DESIGNATED_SECOND_YEAR = "113";
+    public static final String DESIGNATED_FIRST_YEAR = "115";
+    public static final String DESIGNATED_SECOND_YEAR = "114";
 
     public static final String BASIC_FIRST_YEAR = "115";
     public static final String BASIC_SECOND_YEAR = "114";
@@ -35,8 +35,8 @@ public class Config {
     public static final String USER_DB_FILE_NAME = "user.db";
     public static final int USER_DB_VERSION = 1;
 
-    private static final String dataBaseFileName = "grade_2026_0503.db";
-    private static final int databaseResourceId = R.raw.grade_2026_0503;
+    private static final String dataBaseFileName = "grade_2026_1024.db";
+    private static final int databaseResourceId = R.raw.grade_2026_1024;
 
     public static String getDataBaseFileName(){
         return dataBaseFileName;
