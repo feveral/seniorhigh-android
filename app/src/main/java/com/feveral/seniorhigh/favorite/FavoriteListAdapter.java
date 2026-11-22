@@ -123,6 +123,7 @@ public class FavoriteListAdapter extends BaseExpandableListAdapter {
         } else {
             childViewHolder = (ChildViewHolder) view.getTag();
         }
+        childViewHolder.grade.setVisibility(View.GONE);
 
         if (groupPosition == 0) {
             view.setOnClickListener(new View.OnClickListener() {

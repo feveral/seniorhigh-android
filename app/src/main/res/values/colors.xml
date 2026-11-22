@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="primary">#424242</color>
+    <color name="primary">#1B2233</color>
     <color name="colorPrimary">#3498DB</color>
     <color name="colorPrimaryDark">#2980B9</color>
     <color name="colorAccent">#0f8211</color>
@@ -37,4 +37,20 @@
     <color name="my_secondary_text">#ffffff</color>
 
     <color name="white_gray">#cecece</color>
+
+    <!-- Modern palette (ink + amber, from the logo) -->
+    <color name="ink">#1B2233</color>
+    <color name="ink_secondary">#5F6677</color>
+    <color name="ink_tertiary">#8D93A1</color>
+    <color name="bg_app">#F4F5F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F0F1F5</color>
+    <color name="outline">#E3E5EB</color>
+    <color name="amber">#F2B200</color>
+    <color name="amber_container">#FFF4D6</color>
+    <color name="on_amber_container">#7A5300</color>
+    <color name="indigo_container">#E8ECF7</color>
+    <color name="on_indigo_container">#2D3A5C</color>
+    <color name="heart">#F0506E</color>
+    <color name="scrim_ripple">#141B2233</color>
 </resources>

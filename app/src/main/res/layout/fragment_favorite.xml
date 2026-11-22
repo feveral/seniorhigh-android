@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app">
 
     <ExpandableListView
         android:id="@+id/favorite_list"
-        android:layout_marginTop="1dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="12dp"
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:childDivider="@android:color/transparent"
+        android:listSelector="@android:color/transparent"
+        android:groupIndicator="@null"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,25 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    style="@style/ListCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:background="?android:attr/selectableItemBackground">
-    <TextView
-        android:id="@+id/item_title_main"
-        android:layout_width="wrap_content"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/settingPadding"
-        android:textSize="@dimen/textMedium"
-        android:textColor="@color/black"/>
-    <TextView
-        android:id="@+id/item_title_remark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingRight="@dimen/settingPadding"
-        android:gravity="right"
-        android:textSize="@dimen/textMedium"
-        android:textColor="@color/dark_yellow"/>
-</LinearLayout>
+        android:minHeight="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/item_title_main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/ink"/>
+
+        <TextView
+            android:id="@+id/item_title_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFeatureSettings="tnum"
+            android:textColor="@color/on_amber_container"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="6dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

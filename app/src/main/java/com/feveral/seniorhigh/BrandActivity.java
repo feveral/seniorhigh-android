@@ -19,6 +19,7 @@ public class BrandActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setStatusBarColor();
         setContentView(R.layout.activity_brand);
+        com.feveral.seniorhigh.utility.UIUtility.applyLightSystemBars(getWindow());
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
@@ -36,7 +37,7 @@ public class BrandActivity extends AppCompatActivity {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setStatusBarColor() {
-        int color = ContextCompat.getColor(getBaseContext(), R.color.white);
+        int color = ContextCompat.getColor(getBaseContext(), R.color.bg_app);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             if (color == Color.BLACK

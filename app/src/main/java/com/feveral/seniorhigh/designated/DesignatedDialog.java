@@ -67,7 +67,7 @@ public class DesignatedDialog {
         this.firstYearGrade = grade;
         setTitle(grade.getSchool(), grade.getDepartment());
         setFavoriteButton();
-        firstYearView.setText(grade.getYearString());
+        firstYearView.setText(formatYear(grade.getYearString()));
         firstWeightView.setText(grade.getWeightString());
         firstBalanceView.setText(grade.getBalanceString());
         firstAllGradeView.setText(String.valueOf(grade.getAllGrade()));
@@ -77,7 +77,7 @@ public class DesignatedDialog {
 
     public DesignatedDialog setSecondYearGrade(DesignatedGrade grade) {
         this.secondYearGrade = grade;
-        secondYearView.setText(grade.getYearString());
+        secondYearView.setText(formatYear(grade.getYearString()));
         secondWeightView.setText(grade.getWeightString());
         secondBalanceView.setText(grade.getBalanceString());
         secondAllGradeView.setText(String.valueOf(grade.getAllGrade()));
@@ -101,7 +101,12 @@ public class DesignatedDialog {
         return secondWeightView.getText().equals("");
     }
 
+    private static String formatYear(String yearString) {
+        return yearString.replace("-", "").trim();
+    }
+
     private void setSecondGone(){
+        view.findViewById(R.id.dialog_second_section).setVisibility(View.GONE);
         TextView secondBalancePromptView = view.findViewById(R.id.dialog_second_balance_prompt);
         TextView secondPeoplePromptView = view.findViewById(R.id.dialog_second_people_prompt);
         TextView secondAllGradePromptView = view.findViewById(R.id.dialog_second_all_grade_prompt);

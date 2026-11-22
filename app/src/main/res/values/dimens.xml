@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textSmall">16sp</dimen>
-    <dimen name="textMedium">18sp</dimen>
-    <dimen name="textLarge">22sp</dimen>
+    <dimen name="textSmall">14sp</dimen>
+    <dimen name="textMedium">16sp</dimen>
+    <dimen name="textLarge">20sp</dimen>
     <dimen name="courseText">12sp</dimen>
-    <dimen name="buttonHeight">40dp</dimen>
-    <dimen name="settingPadding">18dp</dimen>
+    <dimen name="buttonHeight">48dp</dimen>
+    <dimen name="settingPadding">16dp</dimen>
     <dimen name="smallPadding">10dp</dimen>
     <dimen name="verySmallPadding">5dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="cardRadius">16dp</dimen>
+    <dimen name="cardMarginH">16dp</dimen>
+    <dimen name="cardMarginV">5dp</dimen>
+    <dimen name="dialogRadius">28dp</dimen>
 
     <!--
 Refer to App Widget Documentation for margin information

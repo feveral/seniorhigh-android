@@ -58,7 +58,7 @@ public class UnifyDialog {
         this.firstYearGrade = gradeList.get(0);
         setFavoriteButton();
         setTitle(this.firstYearGrade.getSchool(), this.firstYearGrade.getDepartment());
-        setTextViewText(R.id.unify_dialog_year_first_year, "-----" + this.firstYearGrade.getYear() + "年度-----");
+        setTextViewText(R.id.unify_dialog_year_first_year, this.firstYearGrade.getYear() + "年度");
         Log.d("setFirstYearGrade", String.valueOf(gradeList.get(0).getGrade()));
         if (gradeList.size() >= 1) {
             setTextViewText(R.id.grade1_first_year, Double.toString(gradeList.get(0).getGrade()));
@@ -99,7 +99,7 @@ public class UnifyDialog {
         }
         this.secondYearGrade = gradeList.get(0);
         setFavoriteButton();
-        setTextViewText(R.id.unify_dialog_year_second_year, "-----" + this.secondYearGrade.getYear() + "年度-----");
+        setTextViewText(R.id.unify_dialog_year_second_year, this.secondYearGrade.getYear() + "年度");
         LinearLayout secondYearLayout = view.findViewById(R.id.second_year_layout);
         secondYearLayout.setVisibility(View.VISIBLE);
         if (gradeList.size() >= 1) {

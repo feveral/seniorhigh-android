@@ -4,11 +4,14 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_main"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@color/bg_app">
     <LinearLayout
+        android:id="@+id/main_content"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/bg_app">
         <include
             layout="@layout/toolbar">
         </include>
@@ -22,8 +25,7 @@
             android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
+            android:background="@color/surface"
             ads:adSize="BANNER"
             ads:adUnitId="@string/main_banner_ad_unit_id">
         </com.google.android.gms.ads.AdView>
@@ -35,13 +37,16 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:paddingTop="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@color/surface"
         app:headerLayout="@layout/navigation_header"
         app:theme="@style/NavigationViewStyle"
+        app:itemTextAppearance="@style/TextAppearance.App.NavItem"
+        app:itemShapeFillColor="@color/nav_item_fill"
+        app:itemHorizontalPadding="20dp"
+        app:itemIconPadding="16dp"
+        app:itemVerticalPadding="14dp"
+        app:drawerLayoutCornerSize="28dp"
         app:menu="@menu/menu_sidebar">
     </com.google.android.material.navigation.NavigationView>
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

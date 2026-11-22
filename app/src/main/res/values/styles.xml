@@ -1,39 +1,189 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/white</item>
-        <item name="colorAccent">@color/yellow</item>
+    <!-- Base application theme: Material 3, ink + amber palette -->
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/ink</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/indigo_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_indigo_container</item>
+        <item name="colorSecondary">@color/amber</item>
+        <item name="colorOnSecondary">@color/ink</item>
+        <item name="colorSecondaryContainer">@color/amber_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_amber_container</item>
+        <item name="colorAccent">@color/amber</item>
+        <item name="colorPrimaryDark">@color/bg_app</item>
+        <item name="android:colorBackground">@color/bg_app</item>
+        <item name="android:windowBackground">@color/bg_app</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOnSurfaceVariant">@color/ink_secondary</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outline</item>
+        <item name="colorControlActivated">@color/ink</item>
+        <item name="colorControlHighlight">@color/scrim_ripple</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/ink_secondary</item>
+        <item name="android:textColorHint">@color/ink_tertiary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/bg_app</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="tabStyle">@style/AppTabs</item>
+        <item name="toolbarStyle">@style/AppToolbar</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
-    <!-- ToolBar -->
-    <style name="ToolBarStyle" parent="Theme.AppCompat.Light">
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:textColorSecondary">@android:color/white</item>
-        <item name="actionMenuTextColor">@android:color/white</item>
+    <!-- Top app bar: flat surface with bold ink title -->
+    <style name="AppToolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.App.ToolbarTitle</item>
+        <item name="titleTextColor">@color/ink</item>
+        <item name="navigationIconTint">@color/ink</item>
+        <item name="android:background">@color/bg_app</item>
+    </style>
+
+    <style name="TextAppearance.App.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+
+    <!-- Kept for compatibility (toolbar theme overlay) -->
+    <style name="ToolBarStyle" parent="ThemeOverlay.Material3.Light">
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/ink_secondary</item>
+        <item name="actionMenuTextColor">@color/ink</item>
+        <item name="colorControlNormal">@color/ink</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
-        <item name="color">@android:color/white</item>
+        <item name="color">@color/ink</item>
+    </style>
+
+    <!-- Tabs: amber rounded indicator, bold selected label -->
+    <style name="AppTabs" parent="Widget.Material3.TabLayout">
+        <item name="android:background">@color/bg_app</item>
+        <item name="tabIndicatorColor">@color/amber</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabIndicator">@drawable/tab_indicator</item>
+        <item name="tabSelectedTextColor">@color/ink</item>
+        <item name="tabTextColor">@color/ink_tertiary</item>
+        <item name="tabTextAppearance">@style/TextAppearance.App.Tab</item>
+        <item name="tabRippleColor">@color/scrim_ripple</item>
+        <item name="tabIndicatorAnimationMode">elastic</item>
+    </style>
+
+    <style name="TextAppearance.App.Tab" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">false</item>
     </style>
 
     <!--Alert Dialog-->
-    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <!-- Used for the buttons -->
-        <item name="colorAccent">@color/colorAccent</item>
-        <!-- Used for the title and text -->
-        <item name="android:textColorPrimary">@color/black</item>
-        <!-- Used for the background -->
-        <item name="android:background">@color/white</item>
+    <style name="AlertDialogCustom" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="colorAccent">@color/ink</item>
+        <item name="colorPrimary">@color/ink</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:windowTitleStyle">@style/DialogTitle</item>
+        <item name="android:windowMinWidthMajor">88%</item>
+        <item name="android:windowMinWidthMinor">88%</item>
+    </style>
+
+    <style name="DialogTitle" parent="RtlOverlay.DialogWindowTitle.AppCompat">
+        <item name="android:textAppearance">@style/TextAppearance.App.DialogTitle</item>
+    </style>
+
+    <style name="TextAppearance.App.DialogTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ink</item>
     </style>
 
     <!--NavigationView-->
-    <style name="NavigationViewStyle">
-        <item name="android:textSize">17sp</item>
+    <style name="NavigationViewStyle" parent="ThemeOverlay.Material3.NavigationView">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.App.NavItem" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- List cards -->
+    <style name="ListCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:layout_marginStart">@dimen/cardMarginH</item>
+        <item name="android:layout_marginEnd">@dimen/cardMarginH</item>
+        <item name="android:layout_marginTop">@dimen/cardMarginV</item>
+        <item name="android:layout_marginBottom">@dimen/cardMarginV</item>
+        <item name="cardCornerRadius">@dimen/cardRadius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="strokeColor">@color/outline</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="rippleColor">@color/scrim_ripple</item>
+    </style>
+
+    <style name="ScoreChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_score_chip</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/on_amber_container</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+
+    <!-- Dialog building blocks -->
+    <style name="YearChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_year_chip</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">@color/on_indigo_container</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="StatLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/ink_secondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="StatValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+
+    <style name="SectionCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_section</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="FavoriteButton">
+        <item name="android:layout_width">28dp</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:contentDescription">收藏</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -41,8 +191,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.Material3.Light" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
 
 </resources>

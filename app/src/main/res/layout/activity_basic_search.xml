@@ -4,36 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_app"
     tools:context=".basic.BasicSearchActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/bg_app"
+        app:elevation="0dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/bg_app"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_arrow_back"
             app:popupTheme="@style/AppTheme.PopupOverlay">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/basic_search_input"
-                android:backgroundTint="@color/primary"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/search_chin"
-                android:textSize="@dimen/textMedium"
-                android:textStyle="normal"
+                android:layout_height="46dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_search_field"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/ink_tertiary"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:hint="輸入學校或科系名稱"
+                android:textColor="@color/ink"
+                android:textColorHint="@color/ink_tertiary"
+                android:textSize="16sp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:lines="1"
                 android:singleLine="true"
-                android:textAppearance="@android:style/TextAppearance.WindowTitle"
                 android:visibility="visible" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
 
     <include layout="@layout/content_basic_search" />
 

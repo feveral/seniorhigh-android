@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         AdUtility.initialize(getBaseContext());
         DelayUtility.delay(5, () -> AdUtility.loadAd(findViewById(R.id.adView)));
         UIUtility.adjustToolbarWindowInsets(toolbar, getTheme(), getResources());
+        UIUtility.applyLightSystemBars(getWindow());
+        UIUtility.adjustBottomWindowInsets(findViewById(R.id.main_content));
     }
 
     @Override
@@ -225,8 +227,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setFragmentTitleAndColor(){
         toolbar.setTitle(currentFragment.getTitleStringId());
-        toolbar.setBackgroundColor(ContextCompat.getColor(getBaseContext(),currentFragment.getTitleColorId()));
-        setStatusBarColor(ContextCompat.getColor(getBaseContext(),currentFragment.getTitleColorId()));
+        toolbar.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.bg_app));
+        setStatusBarColor(ContextCompat.getColor(getBaseContext(), R.color.bg_app));
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

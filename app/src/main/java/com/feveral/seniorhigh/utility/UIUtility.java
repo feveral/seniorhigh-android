@@ -2,7 +2,12 @@ package com.feveral.seniorhigh.utility;
 
 import android.content.res.Resources;
 import android.util.TypedValue;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.ViewCompat;
@@ -26,6 +31,24 @@ public class UIUtility {
             ViewGroup.LayoutParams params = v.getLayoutParams();
             params.height = statusBarHeight + getActionBarSize(theme, resources);
             v.setLayoutParams(params);
+            return insets;
+        });
+    }
+
+    /** Dark status/navigation bar icons on the light app background. */
+    public static void applyLightSystemBars(Window window) {
+        WindowInsetsControllerCompat controller =
+                WindowCompat.getInsetsController(window, window.getDecorView());
+        controller.setAppearanceLightStatusBars(true);
+        controller.setAppearanceLightNavigationBars(true);
+    }
+
+    /** Keep bottom content (e.g. the banner ad) clear of the gesture/navigation bar. */
+    public static void adjustBottomWindowInsets(View view) {
+        final int basePadding = view.getPaddingBottom();
+        ViewCompat.setOnApplyWindowInsetsListener(view, (v, insets) -> {
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), basePadding + bottom);
             return insets;
         });
     }

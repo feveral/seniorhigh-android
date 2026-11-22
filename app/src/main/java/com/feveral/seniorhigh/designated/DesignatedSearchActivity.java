@@ -40,12 +40,13 @@ public class DesignatedSearchActivity extends AppCompatActivity {
         setSchoolRecyclerView();
         setSearchTextField();
         UIUtility.adjustToolbarWindowInsets(_toolbar, getTheme(), getResources());
+        UIUtility.applyLightSystemBars(getWindow());
         AdUtility.loadAd(findViewById(R.id.adView));
     }
 
     public void setToolBar() {
         _toolbar = findViewById(R.id.toolbar);
-        _toolbar.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.primary));
+        _toolbar.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.bg_app));
         setSupportActionBar(_toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -54,7 +55,7 @@ public class DesignatedSearchActivity extends AppCompatActivity {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void setStatusBarColor() {
-        int color = ContextCompat.getColor(getBaseContext(), R.color.primary);
+        int color = ContextCompat.getColor(getBaseContext(), R.color.bg_app);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             if (color == Color.BLACK

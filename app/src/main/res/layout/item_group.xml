@@ -1,41 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/settingPadding"
-    android:paddingBottom="@dimen/verySmallPadding"
+    android:paddingStart="@dimen/cardMarginH"
+    android:paddingEnd="@dimen/cardMarginH"
+    android:paddingTop="@dimen/cardMarginV"
+    android:paddingBottom="@dimen/cardMarginV"
     android:clickable="true"
-    android:background="?android:attr/selectableItemBackground">
+    android:focusable="true">
+<com.google.android.material.card.MaterialCardView
+    style="@style/ListCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    android:duplicateParentState="true"
+    android:foreground="?attr/selectableItemBackground">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/verySmallPadding"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/item_title_main"
-            android:layout_width="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/textMedium"
-            android:textColor="@color/black"/>
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/item_title_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_school_small"
+                android:drawablePadding="6dp"
+                android:drawableTint="@color/ink_tertiary"
+                android:gravity="center_vertical"
+                android:textSize="13sp"
+                android:textColor="@color/ink_secondary"/>
+            <TextView
+                android:id="@+id/item_subtitle_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/ink" />
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/item_subtitle_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textMedium" />
+            android:id="@+id/item_title_remark"
+            style="@style/ScoreChip"
+            android:layout_marginStart="12dp"/>
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/item_title_remark"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:paddingTop="@dimen/verySmallPadding"
-        android:paddingRight="@dimen/settingPadding"
-        android:gravity="right|center_vertical"
-        android:textSize="@dimen/textMedium"
-        android:textColor="@color/dark_yellow"/>
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+</FrameLayout>

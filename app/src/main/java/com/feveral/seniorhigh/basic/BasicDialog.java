@@ -96,7 +96,7 @@ public class BasicDialog {
     }
 
     public BasicDialog setYear(String year){
-        String newYear = "-----"  + year + "年度-----";
+        String newYear = year + "年度";
         firstYearYearView.setText(newYear);
         return this;
     }
@@ -107,7 +107,7 @@ public class BasicDialog {
         setFavoriteButton(favorite);
         setFirstYearViewGoneIfGradeNotExist(firstYearGrade);
         builder.setTitle(firstYearGrade.getSchool() + "  " + firstYearGrade.getDepartment());
-        firstYearYearView.setText("-----"  + firstYearGrade.getYear() + "年度-----");
+        firstYearYearView.setText(firstYearGrade.getYear() + "年度");
         firstYearFirstOrder.setText(firstYearGrade.getFirstOrder());
         firstYearFirstGrade.setText(formatDouble(firstYearGrade.getFirstGrade()));
         firstYearSecondOrder.setText(firstYearGrade.getSecondOrder());
@@ -123,7 +123,7 @@ public class BasicDialog {
 
     public BasicDialog setSecondGrade(BasicGrade secondYearGrade){
         setSecondYearViewGoneIfGradeNotExist(secondYearGrade);
-        secondYearYearView.setText("-----"  + secondYearGrade.getYear() + "年度-----");
+        secondYearYearView.setText(secondYearGrade.getYear() + "年度");
         secondYearFirstOrder.setText(secondYearGrade.getFirstOrder());
         secondYearFirstGrade.setText(formatDouble(secondYearGrade.getFirstGrade()));
         secondYearSecondOrder.setText(secondYearGrade.getSecondOrder());
@@ -166,8 +166,10 @@ public class BasicDialog {
     }
 
     private void setSecondYearViewGoneIfGradeNotExist(BasicGrade basicGrade){
-        if(basicGrade.getSchool().equals(""))
+        if(basicGrade.getSchool().equals("")) {
             secondYearYearView.setVisibility(View.GONE);
+            view.findViewById(R.id.basic_dialog_second_section).setVisibility(View.GONE);
+        }
         if(Objects.isNull(basicGrade.getFirstGrade()) || basicGrade.getFirstGrade()== 0){
             secondYearFirstOrder.setVisibility(View.GONE);
             secondYearFirstGrade.setVisibility(View.GONE);
