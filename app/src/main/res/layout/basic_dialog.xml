@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fadeScrollbars="true"
+    android:scrollbarStyle="outsideOverlay">
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -18,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_first_year_year_title"
                 style="@style/YearChip"/>
@@ -34,13 +40,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_first_year_first_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="1"
@@ -52,25 +61,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_first_year_first_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_first_year_second_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="2"
@@ -82,25 +93,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_first_year_second_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_first_year_third_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="3"
@@ -112,25 +125,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_first_year_third_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_first_year_forth_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="4"
@@ -142,25 +157,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_first_year_forth_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_first_year_fifth_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="5"
@@ -172,14 +189,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_first_year_fifth_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -193,7 +209,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_second_year_year_title"
                 style="@style/YearChip"/>
@@ -209,13 +226,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_second_year_first_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="1"
@@ -227,25 +247,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_second_year_first_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_second_year_second_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="2"
@@ -257,25 +279,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_second_year_second_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_second_year_third_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="3"
@@ -287,25 +311,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_second_year_third_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_second_year_forth_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="4"
@@ -317,25 +343,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_second_year_forth_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="46dp"
+            android:paddingTop="8dp"
+            android:tag="score_row"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <TextView
                 android:id="@+id/basic_dialog_second_year_fifth_title"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="5"
@@ -347,14 +375,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:textColor="@color/ink"
                 android:textSize="16sp"/>
             <TextView
                 android:id="@+id/basic_dialog_second_year_fifth_grade"
-                style="@style/ScoreChip"
-                android:layout_marginTop="10dp"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -363,7 +390,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical|end"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+            android:baselineAligned="false">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -378,3 +406,4 @@
     </LinearLayout>
 
 </LinearLayout>
+</androidx.core.widget.NestedScrollView>

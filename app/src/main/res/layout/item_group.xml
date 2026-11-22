@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingStart="@dimen/cardMarginH"
@@ -20,6 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="16dp"
@@ -47,15 +49,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:lineSpacingExtra="2dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/ink" />
+            <TextView
+                android:id="@+id/item_score_caption"
+                style="@style/ListCaption"/>
         </LinearLayout>
 
-        <TextView
+        <com.feveral.seniorhigh.ui.ScoreChipView
             android:id="@+id/item_title_remark"
             style="@style/ScoreChip"
-            android:layout_marginStart="12dp"/>
+            android:layout_marginStart="12dp"
+            app:captionView="@id/item_score_caption"
+            app:captionPrefix="最後篩選  "/>
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

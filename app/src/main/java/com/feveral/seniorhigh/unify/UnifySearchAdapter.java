@@ -73,7 +73,7 @@ public class UnifySearchAdapter extends RecyclerView.Adapter<UnifySearchAdapter.
     public void onBindViewHolder(@NonNull UnifySearchAdapter.ViewHolder holder, int position) {
         holder.itemTitle.setText(_gradeList.get(position).getSchool());
         holder.itemSubtitle.setText(TextUtils.shortStringIfTooLong(_gradeList.get(position).getDepartment()));
-        holder.itemRemark.setText(String.valueOf(_gradeList.get(position).getGrade()));
+        holder.itemRemark.setText(String.format(java.util.Locale.US, "%.2f", _gradeList.get(position).getGrade()));
         holder.setOnClickListener(new UnifySearchAdapter.ViewHolder.ViewHolderClick() {
             @Override
             public void clickOnView(View view, int position) {

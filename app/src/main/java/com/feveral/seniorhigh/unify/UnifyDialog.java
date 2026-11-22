@@ -45,7 +45,7 @@ public class UnifyDialog {
     }
 
     private void setTitle(String school , String department){
-        builder.setTitle(school + "  " + department);
+        builder.setCustomTitle(com.feveral.seniorhigh.utility.UIUtility.buildDialogTitle(context, school, department));
     }
 
     private void setTextViewText(int resId, String text) {
@@ -61,31 +61,31 @@ public class UnifyDialog {
         setTextViewText(R.id.unify_dialog_year_first_year, this.firstYearGrade.getYear() + "年度");
         Log.d("setFirstYearGrade", String.valueOf(gradeList.get(0).getGrade()));
         if (gradeList.size() >= 1) {
-            setTextViewText(R.id.grade1_first_year, Double.toString(gradeList.get(0).getGrade()));
+            setTextViewText(R.id.grade1_first_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(0).getGrade()));
             setTextViewText(R.id.group1_first_year, gradeList.get(0).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout1_first_year);
             layout.setVisibility(View.VISIBLE);
         }
         if (gradeList.size() >= 2) {
-            setTextViewText(R.id.grade2_first_year, Double.toString(gradeList.get(1).getGrade()));
+            setTextViewText(R.id.grade2_first_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(1).getGrade()));
             setTextViewText(R.id.group2_first_year, gradeList.get(1).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout2_first_year);
             layout.setVisibility(View.VISIBLE);
         }
         if (gradeList.size() >= 3) {
-            setTextViewText(R.id.grade3_first_year, Double.toString(gradeList.get(2).getGrade()));
+            setTextViewText(R.id.grade3_first_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(2).getGrade()));
             setTextViewText(R.id.group3_first_year, gradeList.get(2).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout3_first_year);
             layout.setVisibility(View.VISIBLE);
         }
         if (gradeList.size() >= 4) {
-            setTextViewText(R.id.grade4_first_year, Double.toString(gradeList.get(3).getGrade()));
+            setTextViewText(R.id.grade4_first_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(3).getGrade()));
             setTextViewText(R.id.group4_first_year, gradeList.get(3).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout4_first_year);
             layout.setVisibility(View.VISIBLE);
         }
         if (gradeList.size() >= 5) {
-            setTextViewText(R.id.grade5_first_year, Double.toString(gradeList.get(4).getGrade()));
+            setTextViewText(R.id.grade5_first_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(4).getGrade()));
             setTextViewText(R.id.group5_first_year, gradeList.get(4).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout5_first_year);
             layout.setVisibility(View.VISIBLE);
@@ -103,31 +103,31 @@ public class UnifyDialog {
         LinearLayout secondYearLayout = view.findViewById(R.id.second_year_layout);
         secondYearLayout.setVisibility(View.VISIBLE);
         if (gradeList.size() >= 1) {
-            setTextViewText(R.id.grade1_second_year, Double.toString(gradeList.get(0).getGrade()));
+            setTextViewText(R.id.grade1_second_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(0).getGrade()));
             setTextViewText(R.id.group1_second_year, gradeList.get(0).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout1_second_year);
             layout.setVisibility(View.VISIBLE);
         }
         if (gradeList.size() >= 2) {
-            setTextViewText(R.id.grade2_second_year, Double.toString(gradeList.get(1).getGrade()));
+            setTextViewText(R.id.grade2_second_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(1).getGrade()));
             setTextViewText(R.id.group2_second_year, gradeList.get(1).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout2_second_year);
             layout.setVisibility(View.VISIBLE);
         }
         if (gradeList.size() >= 3) {
-            setTextViewText(R.id.grade3_second_year, Double.toString(gradeList.get(2).getGrade()));
+            setTextViewText(R.id.grade3_second_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(2).getGrade()));
             setTextViewText(R.id.group3_second_year, gradeList.get(2).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout3_second_year);
             layout.setVisibility(View.VISIBLE);
         }
         if (gradeList.size() >= 4) {
-            setTextViewText(R.id.grade4_second_year, Double.toString(gradeList.get(3).getGrade()));
+            setTextViewText(R.id.grade4_second_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(3).getGrade()));
             setTextViewText(R.id.group4_second_year, gradeList.get(3).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout4_second_year);
             layout.setVisibility(View.VISIBLE);
         }
         if (gradeList.size() >= 5) {
-            setTextViewText(R.id.grade5_second_year, Double.toString(gradeList.get(4).getGrade()));
+            setTextViewText(R.id.grade5_second_year, String.format(java.util.Locale.US, "%.2f", gradeList.get(4).getGrade()));
             setTextViewText(R.id.group5_second_year, gradeList.get(4).getDepartmentGroup());
             LinearLayout layout = view.findViewById(R.id.grade_group_layout5_second_year);
             layout.setVisibility(View.VISIBLE);

@@ -92,7 +92,7 @@ public class BasicDialog {
     }
 
     public void setTitle(String school , String department){
-        builder.setTitle(school + "  " + department);
+        builder.setCustomTitle(com.feveral.seniorhigh.utility.UIUtility.buildDialogTitle(context, school, department));
     }
 
     public BasicDialog setYear(String year){
@@ -106,7 +106,7 @@ public class BasicDialog {
         Favorite favorite = new Favorite(Config.TABLE_NAME_BASIC, firstYearGrade.getSchool(), firstYearGrade.getDepartment());
         setFavoriteButton(favorite);
         setFirstYearViewGoneIfGradeNotExist(firstYearGrade);
-        builder.setTitle(firstYearGrade.getSchool() + "  " + firstYearGrade.getDepartment());
+        setTitle(firstYearGrade.getSchool(), firstYearGrade.getDepartment());
         firstYearYearView.setText(firstYearGrade.getYear() + "年度");
         firstYearFirstOrder.setText(firstYearGrade.getFirstOrder());
         firstYearFirstGrade.setText(formatDouble(firstYearGrade.getFirstGrade()));
@@ -223,6 +223,7 @@ public class BasicDialog {
     }
 
     public BasicDialog show(){
+        com.feveral.seniorhigh.utility.UIUtility.collapseEmptyRows(view);
         builder.setView(view);
         AlertDialog dialog = builder.create();
         Window view = dialog.getWindow();

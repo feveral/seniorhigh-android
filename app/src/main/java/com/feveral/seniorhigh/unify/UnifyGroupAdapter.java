@@ -78,7 +78,7 @@ public class UnifyGroupAdapter extends RecyclerView.Adapter<UnifyGroupAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.itemTitle.setText(departmentList.get(position).getSchool());
-        holder.itemRemark.setText(String.valueOf(departmentList.get(position).getGrade()));
+        holder.itemRemark.setText(String.format(java.util.Locale.US, "%.2f", departmentList.get(position).getGrade()));
         holder.itemSubTitle.setText(TextUtils.shortStringIfTooLong(departmentList.get(position).getDepartment()));
         holder.setOnClickListener(new UnifyGroupAdapter.ViewHolder.ViewHolderClick() {
             @Override

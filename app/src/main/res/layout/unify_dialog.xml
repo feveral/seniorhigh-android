@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fadeScrollbars="true"
+    android:scrollbarStyle="outsideOverlay">
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,168 +18,153 @@
         android:id="@+id/first_year_layout"
         style="@style/SectionCard"
         android:layout_marginTop="12dp">
-        <TextView
-            android:id="@+id/unify_dialog_year_first_year"
-            style="@style/YearChip"
-            android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <TextView
+                android:id="@+id/unify_dialog_year_first_year"
+                style="@style/YearChip"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="類群 · 總分"
+                android:textColor="@color/ink_tertiary"
+                android:textSize="12sp"/>
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout1_first_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group1_first_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade1_first_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout2_first_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group2_first_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade2_first_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout3_first_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group3_first_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade3_first_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout4_first_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group4_first_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade4_first_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout5_first_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group5_first_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade5_first_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -183,169 +173,154 @@
         style="@style/SectionCard"
         android:layout_marginTop="12dp"
         android:visibility="gone">
-        <TextView
-            android:id="@+id/unify_dialog_year_second_year"
-            style="@style/YearChip"
-            android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <TextView
+                android:id="@+id/unify_dialog_year_second_year"
+                style="@style/YearChip"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="類群 · 總分"
+                android:textColor="@color/ink_tertiary"
+                android:textSize="12sp"/>
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout1_second_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group1_second_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade1_second_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout2_second_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group2_second_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade2_second_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout3_second_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group3_second_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade3_second_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout4_second_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group4_second_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade4_second_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/grade_group_layout5_second_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:baselineAligned="false"
             android:visibility="gone">
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginEnd="12dp"
                 android:orientation="vertical">
-                <TextView
-                    style="@style/StatLabel"
-                    android:text="類群"/>
                 <TextView
                     android:id="@+id/group5_second_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/ink"
-                    android:textStyle="bold"
                     android:textSize="16sp"/>
             </LinearLayout>
             <TextView
-                style="@style/StatLabel"
-                android:layout_marginEnd="8dp"
-                android:text="總分"/>
-            <TextView
                 android:id="@+id/grade5_second_year"
-                style="@style/ScoreChip"/>
+                style="@style/ScoreChip.Dialog"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -354,7 +329,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical|end"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+            android:baselineAligned="false">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -369,3 +345,4 @@
     </LinearLayout>
 
 </LinearLayout>
+</androidx.core.widget.NestedScrollView>

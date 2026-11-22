@@ -2,9 +2,14 @@ package com.feveral.seniorhigh.utility;
 
 import android.content.res.Resources;
 import android.util.TypedValue;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.view.ViewGroup;
 import android.view.Window;
+
+import com.feveral.seniorhigh.R;
 
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -51,5 +56,35 @@ public class UIUtility {
             v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), basePadding + bottom);
             return insets;
         });
+    }
+
+    /** Two-line dialog header: school as a small label, department as the bold title. */
+    public static View buildDialogTitle(Context context, String school, String department) {
+        View title = LayoutInflater.from(context).inflate(R.layout.dialog_title, null);
+        ((TextView) title.findViewById(R.id.dialog_title_school)).setText(school);
+        ((TextView) title.findViewById(R.id.dialog_title_department)).setText(department);
+        return title;
+    }
+
+    /** Hide rows tagged "score_row" whose children have all been hidden, so no empty gaps remain. */
+    public static void collapseEmptyRows(View view) {
+        if (!(view instanceof ViewGroup)) {
+            return;
+        }
+        ViewGroup group = (ViewGroup) view;
+        if ("score_row".equals(group.getTag())) {
+            boolean anyVisible = false;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                if (group.getChildAt(i).getVisibility() != View.GONE) {
+                    anyVisible = true;
+                    break;
+                }
+            }
+            group.setVisibility(anyVisible ? View.VISIBLE : View.GONE);
+            return;
+        }
+        for (int i = 0; i < group.getChildCount(); i++) {
+            collapseEmptyRows(group.getChildAt(i));
+        }
     }
 }

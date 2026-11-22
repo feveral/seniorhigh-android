@@ -60,7 +60,7 @@ public class DesignatedDialog {
     }
 
     public void setTitle(String school , String department){
-        builder.setTitle(school + "  " + department);
+        builder.setCustomTitle(com.feveral.seniorhigh.utility.UIUtility.buildDialogTitle(context, school, department));
     }
 
     public DesignatedDialog setFirstYearGrade(DesignatedGrade grade) {

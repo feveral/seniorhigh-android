@@ -125,19 +125,45 @@
         <item name="rippleColor">@color/scrim_ripple</item>
     </style>
 
+    <!-- Score chip: single number, fixed min width so columns line up -->
     <style name="ScoreChip">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:minHeight">32dp</item>
         <item name="android:background">@drawable/bg_score_chip</item>
-        <item name="android:paddingStart">12dp</item>
-        <item name="android:paddingEnd">12dp</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
         <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/on_amber_container</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+
+    <style name="ScoreChip.Dialog">
+        <item name="android:layout_height">30dp</item>
+        <item name="android:minWidth">72dp</item>
+        <item name="android:minHeight">30dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Small secondary line under a list title (e.g. 學測 last filter subjects) -->
+    <style name="ListCaption">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/ink_secondary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:visibility">gone</item>
     </style>
 
     <!-- Dialog building blocks -->
