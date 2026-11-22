@@ -108,6 +108,7 @@ public class BasicDialog {
         setFirstYearViewGoneIfGradeNotExist(firstYearGrade);
         setTitle(firstYearGrade.getSchool(), firstYearGrade.getDepartment());
         firstYearYearView.setText(firstYearGrade.getYear() + "年度");
+        setQuota(R.id.basic_dialog_first_year_quota_group, R.id.basic_dialog_first_year_quota, firstYearGrade.getPeople());
         firstYearFirstOrder.setText(firstYearGrade.getFirstOrder());
         firstYearFirstGrade.setText(formatDouble(firstYearGrade.getFirstGrade()));
         firstYearSecondOrder.setText(firstYearGrade.getSecondOrder());
@@ -124,6 +125,7 @@ public class BasicDialog {
     public BasicDialog setSecondGrade(BasicGrade secondYearGrade){
         setSecondYearViewGoneIfGradeNotExist(secondYearGrade);
         secondYearYearView.setText(secondYearGrade.getYear() + "年度");
+        setQuota(R.id.basic_dialog_second_year_quota_group, R.id.basic_dialog_second_year_quota, secondYearGrade.getPeople());
         secondYearFirstOrder.setText(secondYearGrade.getFirstOrder());
         secondYearFirstGrade.setText(formatDouble(secondYearGrade.getFirstGrade()));
         secondYearSecondOrder.setText(secondYearGrade.getSecondOrder());
@@ -135,6 +137,17 @@ public class BasicDialog {
         secondYearFifthOrder.setText(secondYearGrade.getFifthOrder());
         secondYearFifthGrade.setText(formatDouble(secondYearGrade.getFifthGrade()));
         return this;
+    }
+
+    /** 學測 people column is the 招生名額 (admission quota); hide it when missing. */
+    private void setQuota(int groupId, int valueId, int quota) {
+        View group = view.findViewById(groupId);
+        if (quota > 0) {
+            ((TextView) view.findViewById(valueId)).setText(String.valueOf(quota));
+            group.setVisibility(View.VISIBLE);
+        } else {
+            group.setVisibility(View.GONE);
+        }
     }
 
     private void setFirstYearViewGoneIfGradeNotExist(BasicGrade basicGrade){

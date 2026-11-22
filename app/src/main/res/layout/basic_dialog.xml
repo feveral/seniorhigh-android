@@ -28,15 +28,42 @@
             <TextView
                 android:id="@+id/basic_dialog_first_year_year_title"
                 style="@style/YearChip"/>
-            <TextView
+            <Space
                 android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+            <LinearLayout
+                android:id="@+id/basic_dialog_first_year_quota_group"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:text="篩選順序"
-                android:textColor="@color/ink_tertiary"
-                android:textSize="12sp"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:text="招生名額"
+                    android:textColor="@color/ink_secondary"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/basic_dialog_first_year_quota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFeatureSettings="tnum"
+                    android:textColor="@color/ink"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="篩選順序 · 最低級分"
+            android:textColor="@color/ink_tertiary"
+            android:textSize="12sp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -214,15 +241,42 @@
             <TextView
                 android:id="@+id/basic_dialog_second_year_year_title"
                 style="@style/YearChip"/>
-            <TextView
+            <Space
                 android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+            <LinearLayout
+                android:id="@+id/basic_dialog_second_year_quota_group"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:text="篩選順序"
-                android:textColor="@color/ink_tertiary"
-                android:textSize="12sp"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:text="招生名額"
+                    android:textColor="@color/ink_secondary"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/basic_dialog_second_year_quota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFeatureSettings="tnum"
+                    android:textColor="@color/ink"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="篩選順序 · 最低級分"
+            android:textColor="@color/ink_tertiary"
+            android:textSize="12sp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
