@@ -129,7 +129,7 @@
     <style name="ScoreChip">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:minWidth">80dp</item>
+        <item name="android:minWidth">72dp</item>
         <item name="android:minHeight">32dp</item>
         <item name="android:background">@drawable/bg_score_chip</item>
         <item name="android:paddingStart">10dp</item>
@@ -145,6 +145,19 @@
         <item name="android:fontFeatureSettings">tnum</item>
     </style>
 
+    <!-- List chip: fixed width so the score column lines up; 學測 adds a subject line on top -->
+    <style name="ScoreChip.List">
+        <item name="android:layout_width">84dp</item>
+        <item name="android:minHeight">30dp</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="ScoreChip.Dialog">
         <item name="android:layout_height">30dp</item>
         <item name="android:minWidth">72dp</item>
@@ -154,17 +167,6 @@
         <item name="android:textSize">15sp</item>
     </style>
 
-    <!-- Small secondary line under a list title (e.g. 學測 last filter subjects) -->
-    <style name="ListCaption">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">4dp</item>
-        <item name="android:textColor">@color/ink_secondary</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:visibility">gone</item>
-    </style>
 
     <!-- Dialog building blocks -->
     <style name="YearChip">

@@ -49,6 +49,7 @@
     <color name="amber">#F2B200</color>
     <color name="amber_container">#FFF4D6</color>
     <color name="on_amber_container">#7A5300</color>
+    <color name="on_amber_container_soft">#9A7426</color>
     <color name="indigo_container">#E8ECF7</color>
     <color name="on_indigo_container">#2D3A5C</color>
     <color name="heart">#F0506E</color>
