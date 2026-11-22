@@ -12,3 +12,8 @@ release_resource/keystore
 release_resource/apk
 app/release/*
 
+
+# Release signing secrets
+keystore.properties
+*.jks
+*.keystore

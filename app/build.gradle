@@ -3,6 +3,13 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+// Release signing: values come from keystore.properties (gitignored, see keystore.properties.template)
+def keystorePropsFile = rootProject.file("keystore.properties")
+def keystoreProps = new Properties()
+if (keystorePropsFile.exists()) {
+    keystorePropsFile.withInputStream { keystoreProps.load(it) }
+}
+
 def slackWebhookUrl = project.rootProject.file("local.properties").withInputStream {
     def props = new Properties()
     props.load(it)
@@ -16,14 +23,27 @@ android {
         applicationId = "com.feveral.seniorhigh"
         minSdk = 23
         targetSdk = 36
-        versionCode = 24
-        versionName = "1.18.0"
+        versionCode = 25
+        versionName = "1.19.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
         buildConfigField "String", "SLACK_WEBHOOK_URL", "\"${slackWebhookUrl}\""
     }
+    signingConfigs {
+        release {
+            if (keystorePropsFile.exists()) {
+                storeFile = rootProject.file(keystoreProps.getProperty("storeFile", "../seniorhigh-script/keystore/mykey.jks"))
+                storePassword = keystoreProps.getProperty("storePassword")
+                keyAlias = keystoreProps.getProperty("keyAlias")
+                keyPassword = keystoreProps.getProperty("keyPassword")
+            }
+        }
+    }
     buildTypes {
         release {
+            if (keystorePropsFile.exists()) {
+                signingConfig = signingConfigs.release
+            }
             minifyEnabled = false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
